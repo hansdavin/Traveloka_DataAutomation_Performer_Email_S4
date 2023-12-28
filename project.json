@@ -1,5 +1,5 @@
 {
-  "name": "Traveloka_DataAutomation_Performer_Email_S2",
+  "name": "Traveloka_DataAutomation_Performer_Email_S3",
   "projectId": "bacfea0d-ed59-421e-a8fe-e087e5878522",
   "description": "Robotic Enterprise Framework",
   "main": "Main.xaml",
@@ -90,7 +90,6 @@
         "fileName": "Tests\\WorkflowTestCaseTemplate.xaml"
       }
     ],
-    "modernBehavior": true,
     "saveToCloud": false
   },
   "expressionLanguage": "VisualBasic",
