@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1403,2478</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>845.6,1297.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CallWorkflow_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -98,7 +98,7 @@
       <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Init_Workflow" sap:VirtualizedContainerService.HintSize="559,2413" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Init_Workflow" sap:VirtualizedContainerService.HintSize="559.2,1232.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="isRerun" />
       <Variable x:TypeArguments="s:DateTime" Name="datePeriod" />
@@ -110,7 +110,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign DisplayName="Assign path to Dictionary" sap:VirtualizedContainerService.HintSize="497,83" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <Assign DisplayName="Assign path to Dictionary" sap:VirtualizedContainerService.HintSize="496.8,83.2" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dicPath]</OutArgument>
       </Assign.To>
@@ -123,16 +123,16 @@
 }]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists - Raw File Folder" Exists="[isRawFolderPathExist]" sap:VirtualizedContainerService.HintSize="497,90" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[dicPath(&quot;strRawFolderPath&quot;)]" PathType="Folder" />
-    <If Condition="[Not isRawFolderPathExist]" DisplayName="If - Raw file folder doesnt exist, then create" sap:VirtualizedContainerService.HintSize="497,350" sap2010:WorkflowViewState.IdRef="If_2">
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists - Raw File Folder" Exists="[isRawFolderPathExist]" sap:VirtualizedContainerService.HintSize="496.8,90.4" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[dicPath(&quot;strRawFolderPath&quot;)]" PathType="Folder" />
+    <If Condition="[Not isRawFolderPathExist]" DisplayName="If - Raw file folder doesnt exist, then create" sap:VirtualizedContainerService.HintSize="496.8,353.6" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,168" sap2010:WorkflowViewState.IdRef="Sequence_7">
+        <Sequence sap:VirtualizedContainerService.HintSize="376.8,170.4" sap2010:WorkflowViewState.IdRef="Sequence_7">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,80" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[dicPath(&quot;strRawFolderPath&quot;)]" />
+          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="333.6,80.8" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[dicPath(&quot;strRawFolderPath&quot;)]" />
         </Sequence>
       </If.Then>
       <If.Else>
@@ -145,7 +145,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:MultipleAssign DisplayName="Multiple Assign - datePeriod &amp; isRerun" sap:VirtualizedContainerService.HintSize="497,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+    <ui:MultipleAssign DisplayName="Multiple Assign - datePeriod &amp; isRerun" sap:VirtualizedContainerService.HintSize="496.8,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -167,520 +167,8 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_TransactionItem.SpecificContent(&quot;Key&quot;).ToString.ToLower]" sap:VirtualizedContainerService.HintSize="497,1487" sap2010:WorkflowViewState.IdRef="Switch`1_2">
-      <Switch.Default>
-        <Sequence DisplayName="Sequence - Throw if BP Key not found" sap:VirtualizedContainerService.HintSize="450,586" sap2010:WorkflowViewState.IdRef="Sequence_5">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:SetAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;GlobalVarAsset&quot;).ToString]" DisplayName="Set Asset - Reset global var" sap:VirtualizedContainerService.HintSize="388,192" sap2010:WorkflowViewState.IdRef="SetAsset_3" Value="[&quot;;&quot;]" />
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Set_EmailDate_Asset.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Custom_Workflow\Set_EmailDate_Asset.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateStartPeriod">[DateTime.MinValue]</InArgument>
-              <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateEndPeriod">[datePeriod]</InArgument>
-              <InArgument x:TypeArguments="scg:List(s:DateTime)" x:Key="in_listStartEndRange" />
-              <InArgument x:TypeArguments="x:String" x:Key="in_assetName">[in_Config("GlobalVarAsset").ToString]</InArgument>
-            </ui:InvokeWorkflowFile.Arguments>
-          </ui:InvokeWorkflowFile>
-          <Throw Exception="[new BusinessRuleException(String.Format(&quot;Business Partner Key does not exist.&quot;))]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
-        </Sequence>
-      </Switch.Default>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="xenditmandiri" DisplayName="xenditmandiri.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="377,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="BP_Workflow\Daily\xenditmandiri.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="directdebitbca" DisplayName="directdebitbca.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="BP_Workflow\Daily\directdebitbca.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="indomaret(paymentpoint)" DisplayName="indomaret.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="355.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="BP_Workflow\Daily\indomaret.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="2c2p_onetwothree" DisplayName="2c2p_onetwothree.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="336,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="BP_Workflow\Daily\2c2p_onetwothree.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mdrbukopin" DisplayName="mdrbukopin.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mdrbukopin.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mdrpanin" DisplayName="mdrpanin.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="374,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mdrpanin.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mdrmega" DisplayName="mdrmega.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="374,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mdrmega.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mdrpermata" DisplayName="mdrpermata.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mdrpermata.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mdrcitibank" DisplayName="mdrcitibank.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mdrcitibank.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mdrvn-vpnganluong" DisplayName="mdrvn-vpnganluong.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mdrvn-vpnganluong.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mdrstandardchartered(scb)" DisplayName="mdrstandardchartered(scb).xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_22" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mdrstandardchartered(scb).xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mdruob" DisplayName="mdruob.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="365,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_23" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mdruob.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mdrmandiri" DisplayName="mdrmandiri.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mdrmandiri.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="alfamart" DisplayName="alfamart.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="347,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_25" UnSafe="False" WorkflowFileName="BP_Workflow\Daily\alfamart.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="cimbclicks" DisplayName="cimbclicks.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="359,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" UnSafe="False" WorkflowFileName="BP_Workflow\Daily\cimbclicks.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mdrktc(thai)" DisplayName="mdrktc(thai).xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_27" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mdrktc(thai).xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="coins" DisplayName="coins.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_28" UnSafe="False" WorkflowFileName="BP_Workflow\Daily\coins.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mdrdanamon" DisplayName="mdrdanamon.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_29" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mdrdanamon.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mdrdbs" DisplayName="mdrdbs.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="363,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mdrdbs.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="cybersourcebni" DisplayName="cybersourcebni.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="BP_Workflow\Daily\cybersourcebni.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mdrcimbniaga" DisplayName="mdrcimbniaga.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="358,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_32" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mdrcimbniaga.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mdrhsbc" DisplayName="mdrhsbc.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="369,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_33" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mdrhsbc.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mdrmaybank" DisplayName="mdrmaybank.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_34" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mdrmaybank.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mdrocbcnisp" DisplayName="mdrocbcnisp.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_35" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mdrocbcnisp.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mdrjeniusbtpn" DisplayName="mdrjeniusbtpn.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="358,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_36" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mdrjeniusbtpn.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="bcaklikpay" DisplayName="bcaklikpay.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="359,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_37" UnSafe="False" WorkflowFileName="BP_Workflow\Daily\bcaklikpay.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mdrmayapada" DisplayName="mdrmayapada.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="357,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_38" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mdrmayapada.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mdrsinarmas" DisplayName="mdrsinarmas.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_39" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mdrsinarmas.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="travelbullz(hk)ltd." DisplayName="travelbullz(hk)ltd..xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="372,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_40" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\travelbullz(hk)ltd..xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="destinationoftheworld" DisplayName="destinationoftheworld.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_41" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\destinationoftheworld.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="webbeds" DisplayName="webbeds.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="369,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_42" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\webbeds.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="jalan" DisplayName="jalan.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="347,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_43" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\jalan.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="didatravel" DisplayName="didatravel.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="367,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_44" UnSafe="False" WorkflowFileName="BP_Workflow\Weekly\didatravel.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="ptmitraglobalholidaytravelokab2b" DisplayName="ptmitraglobalholidaytraveloka.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_45" UnSafe="False" WorkflowFileName="BP_Workflow\Weekly\ptmitraglobalholidaytraveloka.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="ptmitraglobalholidaytravelokaapp" DisplayName="ptmitraglobalholidaytraveloka.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_46" UnSafe="False" WorkflowFileName="BP_Workflow\Weekly\ptmitraglobalholidaytraveloka.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="ptmitraglobalholidaytraveloka" DisplayName="ptmitraglobalholidaytraveloka.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_47" UnSafe="False" WorkflowFileName="BP_Workflow\Weekly\ptmitraglobalholidaytraveloka.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="hotelbeds" DisplayName="hotelbeds.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="367,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_48" UnSafe="False" WorkflowFileName="BP_Workflow\Weekly\hotelbeds.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="expedia-creditlimit" DisplayName="expedia-creditlimit.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="373,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_49" UnSafe="False" WorkflowFileName="BP_Workflow\Weekly\expedia-creditlimit.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="mikitravel(hk)limited" DisplayName="mikitravel(hk)limited.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_50" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\mikitravel(hk)limited.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="travelnetdmcc(smyrooms)" DisplayName="travelnetdmcc(smyrooms).xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_51" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\travelnetdmcc(smyrooms).xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="yanolja" DisplayName="yanolja.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="360,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_52" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\yanolja.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="sepulsa" DisplayName="sepulsa.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="354,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_53" UnSafe="False" WorkflowFileName="BP_Workflow\Weekly\sepulsa.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="garudaindonesia(ga_trinusa&amp;ga_trinusa2)" DisplayName="garudaindonesia(ga_trinusa&amp;ga_trinusa2).xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_54" UnSafe="False" WorkflowFileName="BP_Workflow\Daily\Garuda\garudaindonesia(ga_trinusa&amp;ga_trinusa2).xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="garudaindonesia(ga_trinusabundling)" DisplayName="garudaindonesia(ga_trinusabundling).xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_55" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\garudaindonesia(ga_trinusabundling).xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="garudaindonesia(ga_trinusaflexi)" DisplayName="garudaindonesia(ga_trinusaflexi).xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_56" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\garudaindonesia(ga_trinusaflexi).xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="garudaindonesia(ga_trinusacorp)" DisplayName="garudaindonesia(ga_trinusacorp).xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_57" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\garudaindonesia(ga_trinusacorp).xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="tripcom" DisplayName="trip.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_58" UnSafe="False" WorkflowFileName="BP_Workflow\Weekly\trip.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="tripcomb2b" DisplayName="trip.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_59" UnSafe="False" WorkflowFileName="BP_Workflow\Weekly\trip.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="ctrip" DisplayName="trip.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_60" UnSafe="False" WorkflowFileName="BP_Workflow\Weekly\trip.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="ctripb2b" DisplayName="trip.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_61" UnSafe="False" WorkflowFileName="BP_Workflow\Weekly\trip.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="olympiaeuropeltd" DisplayName="olympiaeuropeltd.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="374,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_62" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\olympiaeuropeltd.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="javamifi" DisplayName="javamifi.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="370,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_63" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\Javamifi\javamifi.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="iziroam" DisplayName="iziroam.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="361,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_64" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\iziroam.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="tboholiday" DisplayName="tboholiday.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_65" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\tboholiday.xaml">
-        <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        </ui:InvokeWorkflowFile.Arguments>
-      </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="zumata" DisplayName="zumata.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="354,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_66" UnSafe="False" WorkflowFileName="BP_Workflow\Weekly\zumata.xaml">
+    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_TransactionItem.SpecificContent(&quot;Key&quot;).ToString.ToLower]" sap:VirtualizedContainerService.HintSize="496.8,301.6" sap2010:WorkflowViewState.IdRef="Switch`1_4">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="flyingfoxlimited" DisplayName="flyingfoxlimited.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="378.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_67" UnSafe="False" WorkflowFileName="BP_Workflow\Daily\flyingfoxlimited.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
           <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
