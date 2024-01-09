@@ -4,6 +4,7 @@
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_strSenderName" Type="InArgument(x:String)" />
     <x:Property Name="in_datePeriod" Type="InArgument(s:DateTime)" />
+    <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
   </x:Members>
   <this:Mail_BusinessError.in_datePeriod>
     <InArgument x:TypeArguments="s:DateTime" />
@@ -11,7 +12,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>845.6,792.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1229.6,792.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Mail_BusinessError_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -112,7 +113,7 @@
     <ui:LogMessage DisplayName="Log Message Mail Business Error" sap:VirtualizedContainerService.HintSize="387.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[in_PID + &quot; - &quot; +&quot;STEP : Mail Business Exception Error&quot;]" />
     <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;Gmail_Credentials&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential Email" sap:VirtualizedContainerService.HintSize="387.2,142.4" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[pwd]" Username="[usrname]" />
     <ui:ReadTextFile File="{x:Null}" Content="[htmlBody]" DisplayName="Read Text File Email Template" FileName="BP_Workflow\Monthly\Javamifi\Mail_Reminder.html" sap:VirtualizedContainerService.HintSize="387.2,80.8" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="" Body="[htmlBody.Replace(&quot;{0}&quot;, in_datePeriod.ToString(&quot;MMM yyyy&quot;))]" DisplayName="Send email reminder (SMTP)" Email="[usrname]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="387.2,180" sap2010:WorkflowViewState.IdRef="SendMail_3" IgnoreCRL="False" IsBodyHtml="True" Name="[in_strSenderName]" Port="465" SecureConnection="Auto" SecurePassword="[pwd]" Server="smtp.gmail.com" Subject="[String.Format(&quot;Report Javamifi - {0}&quot;, in_datePeriod.ToString(&quot;MMM yyyy&quot;))]" To="anyaa.forg.aaa@gmail.com">
+    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="" Body="[htmlBody.Replace(&quot;{0}&quot;, in_datePeriod.ToString(&quot;MMM yyyy&quot;))]" DisplayName="Send email reminder (SMTP)" Email="[usrname]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="387.2,180" sap2010:WorkflowViewState.IdRef="SendMail_3" IgnoreCRL="False" IsBodyHtml="True" Name="[in_strSenderName]" Port="465" SecureConnection="Auto" SecurePassword="[pwd]" Server="smtp.gmail.com" Subject="[String.Format(&quot;Report {0} - {1}&quot;, in_TransactionItem.SpecificContent(&quot;Business Partner&quot;).ToString , in_datePeriod.ToString(&quot;MMM yyyy&quot;))]" To="anyaa.forg.aaa@gmail.com">
       <ui:SendMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
       </ui:SendMail.Files>
