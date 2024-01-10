@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="vietnamtravelairportco__ltd" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="lotustours" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_dicPath" Type="InArgument(scg:Dictionary(x:String, x:String))" />
     <x:Property Name="in_datePeriod" Type="InArgument(s:DateTime)" />
@@ -9,8 +9,8 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1030.6415094339623,8257.811320754716</sap:VirtualizedContainerService.HintSize>
-  <sap2010:WorkflowViewState.IdRef>vietnamtravelairportco.,ltd_1</sap2010:WorkflowViewState.IdRef>
+  <sap:VirtualizedContainerService.HintSize>1030.6415094339623,6897.509433962264</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>lotustours_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -147,7 +147,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Dida travel schedule is biweekly, a single file will contains date ranging from 1-16, and 16-end of month&#xA;Main takeaways:&#xA;1. In biweekly BP, set the date range according to the start and end date of email's subject&#xA;2. Set global datetime in orchestrator asset to default (;)&#xA;3. Set global date end period in orchestrator&#xA;4. Check local folder path if file already exists or not" DisplayName="vietnamtravelairportco.,ltd" sap:VirtualizedContainerService.HintSize="1040.6037735849056,8192.603773584906" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Dida travel schedule is biweekly, a single file will contains date ranging from 1-16, and 16-end of month&#xA;Main takeaways:&#xA;1. In biweekly BP, set the date range according to the start and end date of email's subject&#xA;2. Set global datetime in orchestrator asset to default (;)&#xA;3. Set global date end period in orchestrator&#xA;4. Check local folder path if file already exists or not" DisplayName="lotustours" sap:VirtualizedContainerService.HintSize="1040.6037735849056,6832.301886792452" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strFilePath" />
       <Variable x:TypeArguments="x:Boolean" Name="isFileExist" />
@@ -167,11 +167,12 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message start of workflow" sap:VirtualizedContainerService.HintSize="979.0188679245282,89.66037735849056" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} [{1}]&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, Now)]" />
-    <Sequence sap2010:Annotation.AnnotationText="This functioned as a way enable robot to write log correctly in case any unknown exception is thrown" DisplayName="Set date asset" sap:VirtualizedContainerService.HintSize="979.0188679245282,1362.1132075471696" sap2010:WorkflowViewState.IdRef="Sequence_110">
+    <Sequence sap2010:Annotation.AnnotationText="This functioned as a way enable robot to write log correctly in case any unknown exception is thrown" DisplayName="Set date asset" sap:VirtualizedContainerService.HintSize="979.0188679245282,116.83018867924528" sap2010:WorkflowViewState.IdRef="Sequence_110">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:SetAsset TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Reset the asset in case contains any previous value" AssetName="[in_Config(&quot;GlobalVarAsset&quot;).ToString]" DisplayName="Set Asset - Reset global var" sap:VirtualizedContainerService.HintSize="505.3584905660377,216.45283018867923" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[&quot;;&quot;]">
@@ -204,9 +205,10 @@
                       <OutArgument x:TypeArguments="s:DateTime">[dtDateStart]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="s:DateTime" xml:space="preserve">[If(in_datePeriod.Day &lt;= 10, New DateTime(in_datePeriod.Year, in_datePeriod.Month, 1), 
-If(in_datePeriod.Day &lt;= 20, New DateTime(in_datePeriod.Year, in_datePeriod.Month, 11), 
-New DateTime(in_datePeriod.Year, in_datePeriod.Month, 21)))]</InArgument>
+                      <InArgument x:TypeArguments="s:DateTime" xml:space="preserve">[If(in_datePeriod.Day &lt;= 8, New DateTime(in_datePeriod.Year, in_datePeriod.Month, 1),
+If(in_datePeriod.Day &lt;= 15, New DateTime(in_datePeriod.Year, in_datePeriod.Month, 9),
+If(in_datePeriod.Day &lt;= 23, New DateTime(in_datePeriod.Year, in_datePeriod.Month, 16), 
+New DateTime(in_datePeriod.Year, in_datePeriod.Month, 24))))]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
@@ -214,9 +216,10 @@ New DateTime(in_datePeriod.Year, in_datePeriod.Month, 21)))]</InArgument>
                       <OutArgument x:TypeArguments="s:DateTime">[dtDateEnd]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="s:DateTime" xml:space="preserve">[If(in_datePeriod.Day &lt;= 10, New DateTime(in_datePeriod.Year, in_datePeriod.Month, 10), 
-If(in_datePeriod.Day &lt;= 20, New DateTime(in_datePeriod.Year, in_datePeriod.Month, 20), 
-New DateTime(in_datePeriod.Year, in_datePeriod.Month, DateTime.DaysInMonth(in_datePeriod.Year, in_datePeriod.Month))))]</InArgument>
+                      <InArgument x:TypeArguments="s:DateTime" xml:space="preserve">[If(in_datePeriod.Day &lt;= 8, New DateTime(in_datePeriod.Year, in_datePeriod.Month, 8),
+If(in_datePeriod.Day &lt;= 15, New DateTime(in_datePeriod.Year, in_datePeriod.Month, 15),
+If(in_datePeriod.Day &lt;= 23, New DateTime(in_datePeriod.Year, in_datePeriod.Month, 23), 
+New DateTime(in_datePeriod.Year, in_datePeriod.Month, DateTime.DaysInMonth(in_datePeriod.Year, in_datePeriod.Month)))))]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                 </scg:List>
@@ -239,9 +242,10 @@ New DateTime(in_datePeriod.Year, in_datePeriod.Month, DateTime.DaysInMonth(in_da
                       <OutArgument x:TypeArguments="s:DateTime">[dtDateStart]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="s:DateTime" xml:space="preserve">[If(in_datePeriod.Day &lt;= 10, New DateTime(in_datePeriod.AddMonths(-1).Year, in_datePeriod.AddMonths(-1).Month, 21), 
-If(in_datePeriod.Day &lt;= 20, New DateTime(in_datePeriod.Year, in_datePeriod.Month, 1), 
-New DateTime(in_datePeriod.Year, in_datePeriod.Month, 11)))]</InArgument>
+                      <InArgument x:TypeArguments="s:DateTime" xml:space="preserve">[If(in_datePeriod.Day &lt;= 8, New DateTime(in_datePeriod.AddMonths(-1).Year, in_datePeriod.AddMonths(-1).Month, 24), 
+If(in_datePeriod.Day &lt;= 15, New DateTime(in_datePeriod.Year, in_datePeriod.Month, 1),
+If(in_datePeriod.Day &lt;= 23, New DateTime(in_datePeriod.Year, in_datePeriod.Month, 9),
+New DateTime(in_datePeriod.Year, in_datePeriod.Month, 16))))]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
@@ -249,9 +253,10 @@ New DateTime(in_datePeriod.Year, in_datePeriod.Month, 11)))]</InArgument>
                       <OutArgument x:TypeArguments="s:DateTime">[dtDateEnd]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="s:DateTime" xml:space="preserve">[If(in_datePeriod.Day &lt;= 10, New DateTime(in_datePeriod.AddMonths(-1).Year, in_datePeriod.AddMonths(-1).Month, DateTime.DaysInMonth(in_datePeriod.Year, in_datePeriod.Month)), 
-If(in_datePeriod.Day &lt;= 20, New DateTime(in_datePeriod.Year, in_datePeriod.Month, 10), 
-New DateTime(in_datePeriod.Year, in_datePeriod.Month, 20)))]</InArgument>
+                      <InArgument x:TypeArguments="s:DateTime" xml:space="preserve">[If(in_datePeriod.Day &lt;= 8, New DateTime(in_datePeriod.AddMonths(-1).Year, in_datePeriod.AddMonths(-1).Month, DateTime.DaysInMonth(in_datePeriod.Year, in_datePeriod.Month)), 
+If(in_datePeriod.Day &lt;= 15, New DateTime(in_datePeriod.Year, in_datePeriod.Month, 8),
+If(in_datePeriod.Day &lt;= 23, New DateTime(in_datePeriod.Year, in_datePeriod.Month, 15),
+New DateTime(in_datePeriod.Year, in_datePeriod.Month, 23))))]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                 </scg:List>
@@ -275,7 +280,7 @@ New DateTime(in_datePeriod.Year, in_datePeriod.Month, 20)))]</InArgument>
         </sap:WorkflowViewStateService.ViewState>
       </ui:InvokeWorkflowFile>
     </Sequence>
-    <ui:MultipleAssign sap2010:Annotation.AnnotationText="For weekly run the path and file name is different, folder for monthly and weekly &quot;yyyy-MM&quot; and for file name weekly &quot;ddMMMyy-ddMMMyy&quot; for monthly &quot;MMMyy&quot;" DisplayName="Multiple Assign - for path folder" sap:VirtualizedContainerService.HintSize="979.0188679245282,245.43396226415092" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign sap2010:Annotation.AnnotationText="For weekly run the path and file name is different, folder for monthly and weekly &quot;yyyy-MM&quot; and for file name weekly &quot;ddMMMyy-ddMMMyy&quot; for monthly &quot;MMMyy&quot;" DisplayName="Multiple Assign - for path folder" sap:VirtualizedContainerService.HintSize="979.0188679245282,130.41509433962264" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -315,6 +320,8 @@ New DateTime(in_datePeriod.Year, in_datePeriod.Month, 20)))]</InArgument>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
@@ -500,7 +507,7 @@ New DateTime(in_datePeriod.Year, in_datePeriod.Month, 20)))]</InArgument>
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <If sap2010:Annotation.AnnotationText="If not matched then skip to next email or break if already last email" Condition="[System.Text.RegularExpressions.Regex.IsMatch(attachment.Name, strFileNamePattern, RegexOptions.IgnoreCase) AndAlso&#xA;(&#xA;&#x9;attachment.Name.Contains(String.Format(&quot;{0}-{1}{2}{3}&quot;, dtDateStart.ToString(&quot;dd&quot;), dtDateEnd.ToString(&quot;dd&quot;), dtDateStart.ToString(&quot;MMM&quot;), dtDateStart.ToString(&quot;yyyy&quot;)))&#xA;)]" DisplayName="If - File attachment name matches with regex pattern created from config" sap:VirtualizedContainerService.HintSize="509.88679245283015,442.86792452830184" sap2010:WorkflowViewState.IdRef="If_14">
+                                    <If sap2010:Annotation.AnnotationText="If not matched then skip to next email or break if already last email" Condition="[System.Text.RegularExpressions.Regex.IsMatch(attachment.Name, strFileNamePattern, RegexOptions.IgnoreCase) AndAlso&#xD;&#xA;(&#xD;&#xA;&#x9;attachment.Name.Contains(String.Format(&quot;{0}-{1}{2}{3}&quot;, dtDateStart.ToString(&quot;dd&quot;), dtDateEnd.ToString(&quot;dd&quot;), dtDateStart.ToString(&quot;MMM&quot;), dtDateStart.ToString(&quot;yy&quot;)))&#xD;&#xA;)]" DisplayName="If - File attachment name matches with regex pattern created from config" sap:VirtualizedContainerService.HintSize="509.88679245283015,442.86792452830184" sap2010:WorkflowViewState.IdRef="If_14">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
