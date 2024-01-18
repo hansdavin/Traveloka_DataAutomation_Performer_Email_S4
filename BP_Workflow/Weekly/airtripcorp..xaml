@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1403,7379</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>845.6,7411.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>airtripcorp._1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -147,7 +147,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Airtrip Corp. schedule is weekly, a single file will contains date ranging from 1-7, 8-15, 16-23, 24-EOM&#xD;&#xA;Subject date format yyyy/MM/dd&#xA;Main takeaways:&#xA;1. In weekly BP, set the date according to the end date of email's subject&#xA;2. Set global datetime in orchestrator asset to default (;)&#xA;3. Set global date end period in orchestrator&#xA;4. Check local folder path if file already exists or not" DisplayName="airtripcorp." sap:VirtualizedContainerService.HintSize="848,7314" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Airtrip Corp. schedule is weekly, a single file will contains date ranging from 1-7, 8-15, 16-23, 24-EOM&#xA;Subject date format yyyy/MM/dd&#xA;Main takeaways:&#xA;1. In weekly BP, set the date according to the end date of email's subject&#xA;2. Set global datetime in orchestrator asset to default (;)&#xA;3. Set global date end period in orchestrator&#xA;4. Check local folder path if file already exists or not" DisplayName="airtripcorp." sap:VirtualizedContainerService.HintSize="848,7346.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strFilePath" />
       <Variable x:TypeArguments="x:Boolean" Name="isFileExist" />
@@ -175,8 +175,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message start of workflow" sap:VirtualizedContainerService.HintSize="786,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} [{1}]&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, Now)]" />
-    <Sequence sap2010:Annotation.AnnotationText="This function as a way enable robot to write log correctly in case any unknown exception is thrown" DisplayName="Set date asset" sap:VirtualizedContainerService.HintSize="786,1740" sap2010:WorkflowViewState.IdRef="Sequence_110">
+    <ui:LogMessage DisplayName="Log Message start of workflow" sap:VirtualizedContainerService.HintSize="785.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} [{1}]&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, Now)]" />
+    <Sequence sap2010:Annotation.AnnotationText="This function as a way enable robot to write log correctly in case any unknown exception is thrown" DisplayName="Set date asset" sap:VirtualizedContainerService.HintSize="785.6,1764" sap2010:WorkflowViewState.IdRef="Sequence_110">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -184,7 +184,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:SetAsset TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Reset the asset in case contains any previous value" AssetName="[in_Config(&quot;GlobalVarAsset&quot;).ToString]" DisplayName="Set Asset - Reset global var" sap:VirtualizedContainerService.HintSize="434,223" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[&quot;;&quot;]">
+      <ui:SetAsset TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Reset the asset in case contains any previous value" AssetName="[in_Config(&quot;GlobalVarAsset&quot;).ToString]" DisplayName="Set Asset - Reset global var" sap:VirtualizedContainerService.HintSize="433.6,225.6" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[&quot;;&quot;]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -193,7 +193,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:SetAsset>
-      <Assign sap2010:Annotation.AnnotationText="Init Airtrip Corp. report period:&#xA;Week 1: 1-7&#xA;Week 2: 8-15&#xA;Week 3: 16-23&#xA;Week 4: 24-EOM" DisplayName="Assign - Init report period" sap:VirtualizedContainerService.HintSize="434,170" sap2010:WorkflowViewState.IdRef="Assign_31">
+      <Assign sap2010:Annotation.AnnotationText="Init Airtrip Corp. report period:&#xA;Week 1: 1-7&#xA;Week 2: 8-15&#xA;Week 3: 16-23&#xA;Week 4: 24-EOM" DisplayName="Assign - Init report period" sap:VirtualizedContainerService.HintSize="433.6,175.2" sap2010:WorkflowViewState.IdRef="Assign_31">
         <Assign.To>
           <OutArgument x:TypeArguments="scg:Dictionary(x:Int32, x:String)">[dicPeriod]</OutArgument>
         </Assign.To>
@@ -212,17 +212,11 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </Assign>
-      <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="If in_isRerun: week -1" Code="int weekPeriod = 0;&#xD;&#xA;switch (in_datePeriod.Day)&#xD;&#xA;{&#xD;&#xA;    case int day when day &gt;= 1 &amp;&amp; day &lt;= 7:&#xD;&#xA;        weekPeriod = 1;&#xD;&#xA;        break;&#xD;&#xA;    case int day when day &gt;= 8 &amp;&amp; day &lt;= 15:&#xD;&#xA;        weekPeriod = 2;&#xD;&#xA;        break;&#xD;&#xA;    case int day when day &gt;= 16 &amp;&amp; day &lt;= 23:&#xD;&#xA;        weekPeriod = 3;&#xD;&#xA;        break;&#xD;&#xA;    default:&#xD;&#xA;        weekPeriod = 4;&#xD;&#xA;        break;&#xD;&#xA;}&#xD;&#xA;weekPeriod = in_isRerun ? weekPeriod : weekPeriod - 1;&#xD;&#xA;out_intWeekPeriod = weekPeriod;&#xD;&#xA;Console.WriteLine($&quot;in_datePeriod.Day: {in_datePeriod.Day}&quot;);&#xD;&#xA;Console.WriteLine($&quot;weekPeriod: {out_intWeekPeriod}&quot;);" DisplayName="Invoke Code - Set week number within a month" sap:VirtualizedContainerService.HintSize="434,196" sap2010:WorkflowViewState.IdRef="InvokeCode_6" Language="CSharp">
+      <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="If in_isRerun: week -1" Code="int weekPeriod = 0;&#xA;switch (in_datePeriod.Day)&#xA;{&#xA;    case int day when day &gt;= 1 &amp;&amp; day &lt;= 7:&#xA;        weekPeriod = 1;&#xA;        break;&#xA;    case int day when day &gt;= 8 &amp;&amp; day &lt;= 15:&#xA;        weekPeriod = 2;&#xA;        break;&#xA;    case int day when day &gt;= 16 &amp;&amp; day &lt;= 23:&#xA;        weekPeriod = 3;&#xA;        break;&#xA;    default:&#xA;        weekPeriod = 4;&#xA;        break;&#xA;}&#xA;weekPeriod = in_isRerun ? weekPeriod : weekPeriod - 1;&#xA;out_intWeekPeriod = weekPeriod;&#xA;Console.WriteLine($&quot;in_datePeriod.Day: {in_datePeriod.Day}&quot;);&#xA;Console.WriteLine($&quot;weekPeriod: {out_intWeekPeriod}&quot;);" DisplayName="Invoke Code - Set week number within a month" sap:VirtualizedContainerService.HintSize="433.6,196" sap2010:WorkflowViewState.IdRef="InvokeCode_6" Language="CSharp">
         <ui:InvokeCode.Arguments>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">
-            <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="in_datePeriod" />
-          </InArgument>
-          <OutArgument x:TypeArguments="x:Int32" x:Key="out_intWeekPeriod">
-            <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="intWeekPeriod" />
-          </OutArgument>
-          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">
-            <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="in_isRerun" />
-          </InArgument>
+          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[in_datePeriod]</InArgument>
+          <OutArgument x:TypeArguments="x:Int32" x:Key="out_intWeekPeriod">[intWeekPeriod]</OutArgument>
+          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[in_isRerun]</InArgument>
         </ui:InvokeCode.Arguments>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -230,7 +224,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:InvokeCode>
-      <Assign sap2010:Annotation.AnnotationText="If normal run, collecting report period 24 - EOM will be executed at the start of next month (1 - 4). So 1 (first week next month) - 1 (normal run -1) will be 0.&#xA;If rerun, the Rerun Date will be filled with end Date period e.g. 30 Nov 2023, so the week number = 5, because 1 week considered as 7 days:&#xA;Week 1: 1-7&#xA;Week 2: 8-14&#xA;Week 3: 15-21&#xA;Week 4: 22-29&#xA;Week 5: 30-EOM" DisplayName="Assign - If current week is 0 (normal run), set to 4" sap:VirtualizedContainerService.HintSize="434,244" sap2010:WorkflowViewState.IdRef="Assign_32">
+      <Assign sap2010:Annotation.AnnotationText="If normal run, collecting report period 24 - EOM will be executed at the start of next month (1 - 4). So 1 (first week next month) - 1 (normal run -1) will be 0.&#xA;If rerun, the Rerun Date will be filled with end Date period e.g. 30 Nov 2023, so the week number = 5, because 1 week considered as 7 days:&#xA;Week 1: 1-7&#xA;Week 2: 8-14&#xA;Week 3: 15-21&#xA;Week 4: 22-29&#xA;Week 5: 30-EOM" DisplayName="Assign - If current week is 0 (normal run), set to 4" sap:VirtualizedContainerService.HintSize="433.6,253.6" sap2010:WorkflowViewState.IdRef="Assign_32">
         <Assign.To>
           <OutArgument x:TypeArguments="x:Int32">[intWeekPeriod]</OutArgument>
         </Assign.To>
@@ -243,15 +237,26 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </Assign>
-      <ui:InvokeCode ContinueOnError="{x:Null}" Code="List&lt;DateTime&gt; listDateStartEnd = new List&lt;DateTime&gt;();&#xD;&#xA;if (in_dicPeriod.TryGetValue(in_intCurrentWeek, out string outValue))&#xD;&#xA;{&#xD;&#xA;    // The key was found in the dictionary&#xD;&#xA;    Console.WriteLine($&quot;Key: {in_intCurrentWeek}, Output: {outValue}&quot;);&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;MatchCollection matches = Regex.Matches(outValue, @&quot;\d+&quot;);&#xD;&#xA;&#x9;Console.WriteLine($&quot;ListDate: {String.Join(&quot;, &quot;, matches.Cast&lt;Match&gt;().Select(match =&gt; match.Value))}&quot;);&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;if (matches.Count == 2)&#xD;&#xA;    {&#xD;&#xA;        // Two values found, e.g., &quot;1-8&quot;&#xD;&#xA;        if (int.TryParse(matches[0].Value, out int startDay) &amp;&amp; int.TryParse(matches[1].Value, out int endDay))&#xD;&#xA;        {&#xD;&#xA;            // Assuming current month, you may need to adjust for other scenarios&#xD;&#xA;            DateTime dtDateStart = new DateTime(in_datePeriod.Year, in_datePeriod.Month, startDay);&#xD;&#xA;            DateTime dtDateEnd = new DateTime(in_datePeriod.Year, in_datePeriod.Month, endDay);&#xD;&#xA;&#x9;&#x9;&#x9;Console.WriteLine($&quot;dtDateStart: {dtDateStart}&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;Console.WriteLine($&quot;dtDateEnd: {dtDateEnd}&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;            listDateStartEnd.Add(dtDateStart);&#xD;&#xA;            listDateStartEnd.Add(dtDateEnd);&#xD;&#xA;        }&#xD;&#xA;    }&#xD;&#xA;    else if (matches.Count == 1)&#xD;&#xA;    {&#xD;&#xA;        // One value found, e.g., &quot;24-EOM&quot;&#xD;&#xA;        if (int.TryParse(matches[0].Value, out int startDay))&#xD;&#xA;        {&#xD;&#xA;            // Assuming current month, you may need to adjust for other scenarios&#xD;&#xA;            DateTime dtDateStart = new DateTime(in_datePeriod.Year, in_datePeriod.Month, startDay);&#xD;&#xA;            DateTime dtDateEnd = new DateTime(in_datePeriod.Year, in_datePeriod.Month, DateTime.DaysInMonth(in_datePeriod.Year, in_datePeriod.Month));&#xD;&#xA;&#x9;&#x9;&#x9;Console.WriteLine($&quot;dtDateStart: {dtDateStart}&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;Console.WriteLine($&quot;dtDateEnd: {dtDateEnd}&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;            listDateStartEnd.Add(dtDateStart);&#xD;&#xA;            listDateStartEnd.Add(dtDateEnd);&#xD;&#xA;        }&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;    // The key was not found in the dictionary&#xD;&#xA;    Console.WriteLine($&quot;Input: {in_intCurrentWeek}, Output not found&quot;);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;out_listDateStartEnd = listDateStartEnd;" DisplayName="Invoke Code - Set start date &amp; end date" sap:VirtualizedContainerService.HintSize="434,165" sap2010:WorkflowViewState.IdRef="InvokeCode_7" Language="CSharp">
+      <ui:InvokeCode ContinueOnError="{x:Null}" Code="List&lt;DateTime&gt; listDateStartEnd = new List&lt;DateTime&gt;();&#xD;&#xA;if (in_dicPeriod.TryGetValue(in_intCurrentWeek, out string outValue))&#xD;&#xA;{&#xD;&#xA;    // The key was found in the dictionary&#xD;&#xA;    Console.WriteLine($&quot;Key: {in_intCurrentWeek}, Output: {outValue}&quot;);&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;MatchCollection matches = Regex.Matches(outValue, @&quot;\d+&quot;);&#xD;&#xA;&#x9;Console.WriteLine($&quot;ListDate: {String.Join(&quot;, &quot;, matches.Cast&lt;Match&gt;().Select(match =&gt; match.Value))}&quot;);&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;if (matches.Count == 2)&#xD;&#xA;    {&#xD;&#xA;        // Two values found, e.g., &quot;1-8&quot;&#xD;&#xA;        if (int.TryParse(matches[0].Value, out int startDay) &amp;&amp; int.TryParse(matches[1].Value, out int endDay))&#xD;&#xA;        {&#xD;&#xA;            // Assuming current month, you may need to adjust for other scenarios&#xD;&#xA;            DateTime dtDateStart = new DateTime(in_datePeriod.Year, in_datePeriod.Month, startDay);&#xD;&#xA;            DateTime dtDateEnd = new DateTime(in_datePeriod.Year, in_datePeriod.Month, endDay);&#xD;&#xA;&#x9;&#x9;&#x9;Console.WriteLine($&quot;dtDateStart: {dtDateStart}&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;Console.WriteLine($&quot;dtDateEnd: {dtDateEnd}&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;            listDateStartEnd.Add(dtDateStart);&#xD;&#xA;            listDateStartEnd.Add(dtDateEnd);&#xD;&#xA;        }&#xD;&#xA;    }&#xD;&#xA;    else if (matches.Count == 1)&#xD;&#xA;    {&#xD;&#xA;        // One value found, e.g., &quot;24-EOM&quot;&#xD;&#xA;        if (int.TryParse(matches[0].Value, out int startDay))&#xD;&#xA;        {&#xD;&#xA;            // Assuming current month, you may need to adjust for other scenarios&#xD;&#xA;            DateTime dtDateStart = new DateTime(in_datePeriod.Year, in_datePeriod.Month, startDay);&#xD;&#xA;            DateTime dtDateEnd = new DateTime(in_datePeriod.Year, in_datePeriod.Month, DateTime.DaysInMonth(in_datePeriod.Year, in_datePeriod.Month));&#xD;&#xA;&#x9;&#x9;&#x9;if(!in_isRerun)&#xD;&#xA;&#x9;&#x9;&#x9;{&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;dtDateStart = dtDateStart.AddMonths(-1);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;dtDateEnd = dtDateEnd.AddMonths(-1);&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;Console.WriteLine($&quot;dtDateStart: {dtDateStart}&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;Console.WriteLine($&quot;dtDateEnd: {dtDateEnd}&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;            listDateStartEnd.Add(dtDateStart);&#xD;&#xA;            listDateStartEnd.Add(dtDateEnd);&#xD;&#xA;        }&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;    // The key was not found in the dictionary&#xD;&#xA;    Console.WriteLine($&quot;Input: {in_intCurrentWeek}, Output not found&quot;);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;out_listDateStartEnd = listDateStartEnd;" DisplayName="Invoke Code - Set start date &amp; end date" sap:VirtualizedContainerService.HintSize="433.6,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_7" Language="CSharp">
         <ui:InvokeCode.Arguments>
-          <InArgument x:TypeArguments="x:Int32" x:Key="in_intCurrentWeek">[intWeekPeriod]</InArgument>
-          <OutArgument x:TypeArguments="scg:List(s:DateTime)" x:Key="out_listDateStartEnd">[listDateStartEnd]</OutArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:Int32, x:String)" x:Key="in_dicPeriod">[dicPeriod]</InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[in_datePeriod]</InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="in_intCurrentWeek">
+            <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="intWeekPeriod" />
+          </InArgument>
+          <OutArgument x:TypeArguments="scg:List(s:DateTime)" x:Key="out_listDateStartEnd">
+            <VisualBasicReference x:TypeArguments="scg:List(s:DateTime)" ExpressionText="listDateStartEnd" />
+          </OutArgument>
+          <InArgument x:TypeArguments="scg:Dictionary(x:Int32, x:String)" x:Key="in_dicPeriod">
+            <VisualBasicValue x:TypeArguments="scg:Dictionary(x:Int32, x:String)" ExpressionText="dicPeriod" />
+          </InArgument>
+          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">
+            <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="in_datePeriod" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">
+            <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="in_isRerun" />
+          </InArgument>
         </ui:InvokeCode.Arguments>
       </ui:InvokeCode>
-      <ui:MultipleAssign sap2010:Annotation.AnnotationText="If normal run then set the start &amp; end date current week - 1 (as initialized above)" DisplayName="Set start date and end date by using bp's specific schedule" sap:VirtualizedContainerService.HintSize="434,205" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+      <ui:MultipleAssign sap2010:Annotation.AnnotationText="If normal run then set the start &amp; end date current week - 1 (as initialized above)" DisplayName="Set start date and end date by using bp's specific schedule" sap:VirtualizedContainerService.HintSize="433.6,208" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
@@ -286,7 +291,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:MultipleAssign>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Set the adjusted date to the asset" DisplayName="Set_EmailDate_Asset.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Custom_Workflow\Set_EmailDate_Asset.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Set the adjusted date to the asset" DisplayName="Set_EmailDate_Asset.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="433.6,144.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Custom_Workflow\Set_EmailDate_Asset.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateStartPeriod">[dtDateStart]</InArgument>
           <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateEndPeriod">[dtDateEnd]</InArgument>
