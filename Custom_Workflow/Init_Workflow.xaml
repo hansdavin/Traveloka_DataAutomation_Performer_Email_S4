@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1173,1752</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1403,1476</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CallWorkflow_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -98,7 +98,7 @@
       <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Init_Workflow" sap:VirtualizedContainerService.HintSize="559,1687" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Init_Workflow" sap:VirtualizedContainerService.HintSize="559,1411" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="isRerun" />
       <Variable x:TypeArguments="s:DateTime" Name="datePeriod" />
@@ -124,7 +124,13 @@
       </Assign.Value>
     </Assign>
     <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists - Raw File Folder" Exists="[isRawFolderPathExist]" sap:VirtualizedContainerService.HintSize="497,90" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[dicPath(&quot;strRawFolderPath&quot;)]" PathType="Folder" />
-    <If Condition="[Not isRawFolderPathExist]" DisplayName="If - Raw file folder doesnt exist, then create" sap:VirtualizedContainerService.HintSize="497,350" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[Not isRawFolderPathExist]" DisplayName="If - Raw file folder doesnt exist, then create" sap:VirtualizedContainerService.HintSize="497,52" sap2010:WorkflowViewState.IdRef="If_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="376,168" sap2010:WorkflowViewState.IdRef="Sequence_7">
           <sap:WorkflowViewStateService.ViewState>
@@ -167,7 +173,7 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_TransactionItem.SpecificContent(&quot;Key&quot;).ToString.ToLower]" sap:VirtualizedContainerService.HintSize="497,761" sap2010:WorkflowViewState.IdRef="Switch`1_4">
+    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_TransactionItem.SpecificContent(&quot;Key&quot;).ToString.ToLower]" sap:VirtualizedContainerService.HintSize="497,783" sap2010:WorkflowViewState.IdRef="Switch`1_4">
       <Switch.Default>
         <Throw DisplayName="Throw BP Key not found" Exception="[New SystemException(&quot;BP Key Not Found&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
       </Switch.Default>
@@ -361,6 +367,15 @@
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="susiair" DisplayName="susiair.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="336,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_88" UnSafe="False" WorkflowFileName="BP_Workflow\Daily\susiair.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
+          <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
+          <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[isRerun]</InArgument>
+          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="ptaeroglobeindonesia" DisplayName="ptaeroglobeindonesia.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_89" UnSafe="False" WorkflowFileName="BP_Workflow\Monthly\ptaeroglobeindonesia.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
           <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>
