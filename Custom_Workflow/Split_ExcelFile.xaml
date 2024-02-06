@@ -8,14 +8,18 @@
     <x:Property Name="in_strFileRegexPattern" Type="InArgument(x:String)" />
     <x:Property Name="in_datePattern" Type="InArgument(x:String)" />
     <x:Property Name="in_listDistinctDate" Type="InArgument(scg:List(s:DateTime))" />
+    <x:Property Name="in_startRange" Type="InArgument(x:String)" />
   </x:Members>
   <this:Split_ExcelFile.in_listDistinctDate>
     <InArgument x:TypeArguments="scg:List(s:DateTime)" />
   </this:Split_ExcelFile.in_listDistinctDate>
+  <this:Split_ExcelFile.in_startRange>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Split_ExcelFile.in_startRange>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1130.4,3727.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1410.4,3727.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Split_ExcelFile_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -246,7 +250,7 @@
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:ExcelReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtRawFile]" DisplayName="Read Range Sheet" sap:VirtualizedContainerService.HintSize="608,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[listSheet(currentItem.Key)]" />
+                    <ui:ExcelReadRange AddHeaders="True" DataTable="[dtRawFile]" DisplayName="Read Range Sheet" sap:VirtualizedContainerService.HintSize="608,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" Range="[in_startRange]" SheetName="[listSheet(currentItem.Key)]" />
                     <If Condition="[Not String.IsNullOrEmpty(currentItem.Value)]" DisplayName="If Split Data" sap:VirtualizedContainerService.HintSize="608,2438.4" sap2010:WorkflowViewState.IdRef="If_3">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
