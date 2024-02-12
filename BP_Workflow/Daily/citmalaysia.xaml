@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1410.4,10462.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1064.8,10462.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>citmalaysia_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -365,7 +365,7 @@
               <OutArgument x:TypeArguments="s:DateTime">[dateStartPeriod]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="s:DateTime">[If(dateEndPeriod.DayOfWeek = DayOfWeek.Monday, dateEndPeriod.AddDays(-2), dateEndPeriod)]</InArgument>
+              <InArgument x:TypeArguments="s:DateTime">[in_datePeriod]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
@@ -945,33 +945,15 @@
           </Sequence>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom_Workflow\Split_ExcelFile.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="936,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="Custom_Workflow\Split_ExcelFile.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_strRawFilePath">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strRawFilePath" />
-              </InArgument>
-              <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_listFilePath">
-                <VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="listFilePath" />
-              </OutArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_strFolderPath">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strFolderPath" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_strFilename">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Path.GetFileName(strFilePath)" />
-              </InArgument>
-              <InArgument x:TypeArguments="scg:Dictionary(x:Int32, x:String)" x:Key="in_dictSplit">
-                <VisualBasicValue x:TypeArguments="scg:Dictionary(x:Int32, x:String)" ExpressionText="dictSplit" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_strFileRegexPattern">
-                <Literal x:TypeArguments="x:String">\d{2}[A-Za-z]{3}\d{2}</Literal>
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_datePattern">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="reportDatePattern" />
-              </InArgument>
-              <InArgument x:TypeArguments="scg:List(s:DateTime)" x:Key="in_listDistinctDate">
-                <VisualBasicValue x:TypeArguments="scg:List(s:DateTime)" ExpressionText="listDateRange" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_startRange">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="startRangeReport" />
-              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strRawFilePath">[strRawFilePath]</InArgument>
+              <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_listFilePath">[listFilePath]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strFolderPath">[strFolderPath]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strFilename">[Path.GetFileName(strFilePath)]</InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:Int32, x:String)" x:Key="in_dictSplit">[dictSplit]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strFileRegexPattern">\d{2}[A-Za-z]{3}\d{2}</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_datePattern">[reportDatePattern]</InArgument>
+              <InArgument x:TypeArguments="scg:List(s:DateTime)" x:Key="in_listDistinctDate">[listDateRange]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_startRange">[startRangeReport]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[intFilePathIndex]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="936,350.4" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[listFilePath]">
