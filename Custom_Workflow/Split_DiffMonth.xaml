@@ -1,0 +1,122 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Split_DiffMonth" this:Split_DiffMonth.in_rangeDatePeriod="03/28/2023 00:00:00;04/03/2023 00:00:00" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_rangeDatePeriod" Type="InArgument(x:String)" />
+    <x:Property Name="out_listRangeDatePeriod" Type="InArgument(scg:List(scg:List(s:DateTime)))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>845.6,861.6</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Split_DiffMonth_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>Traveloka_DataAutomation_Email_S2.Core</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Input : datePeriodStart;datePeriodEnd&#xA;Process : If there's diff month group by month.&#xA;Ie : &#xA;Input : 11/29/2023 00:00:00;12/03/2023 00:00:00&#xA;datePeriodStart : 11/29/2023 00:00:00&#xA;datePeriodEnd : 12/03/2023 00:00:00&#xA;Output : List of new period range&#xA;listDate[0] : 11/29/2023 00:00:00;11/30/2023 00:00:00&#xA;listDate [1] : 12/01/2023 00:00:00;12/02/2023 00:00:00;12/03/2023 00:00:00" DisplayName="Split_DiffMonth" sap:VirtualizedContainerService.HintSize="499.2,796.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message Split_DiffMonth" sap:VirtualizedContainerService.HintSize="436.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;STEP : Split_DiffMonth&quot;]" />
+    <TryCatch DisplayName="Try Catch Invoke Code Split Diff Month" sap:VirtualizedContainerService.HintSize="436.8,396" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <ui:InvokeCode ContinueOnError="{x:Null}" Code="// Input: datePeriodStart and datePeriodEnd&#xA;DateTime datePeriodStart = DateTime.Parse(in_rangeDatePeriod.Split(&quot;;&quot;)[0]);&#xA;DateTime datePeriodEnd = DateTime.Parse(in_rangeDatePeriod.Split(&quot;;&quot;)[1]);&#xA;&#xA;if(datePeriodEnd &lt; datePeriodStart)&#xA;{&#xA;&#x9;throw new Exception(&quot;Invalid Date Range&quot;);&#xA;}&#xA;&#xA;// Process: Group by month&#xA;List&lt;List&lt;DateTime&gt;&gt; groupedDates = new List&lt;List&lt;DateTime&gt;&gt;();&#xA;&#xA;DateTime currentDate = datePeriodStart;&#xA;while (currentDate &lt;= datePeriodEnd)&#xA;{&#xA;    DateTime startOfMonth = new DateTime(currentDate.Year, currentDate.Month, 1, 0, 0, 0);&#xA;    DateTime endOfMonth = startOfMonth.AddMonths(1).AddSeconds(-1);&#xA;&#xA;    List&lt;DateTime&gt; dateRange = new List&lt;DateTime&gt;();&#xA;    while (currentDate &lt;= endOfMonth &amp;&amp; currentDate &lt;= datePeriodEnd)&#xA;    {&#xA;        dateRange.Add(currentDate);&#xA;        currentDate = currentDate.Add(new TimeSpan(1, 0, 0, 0)); // Increment by one day&#xA;    }&#xA;&#xA;    groupedDates.Add(dateRange);&#xA;}&#xA;&#xA;// Output: Print the result using String.Format&#xA;for (int i = 0; i &lt; groupedDates.Count; i++)&#xA;{&#xA;    string startDates = string.Join(&quot;;&quot;, groupedDates[i].ConvertAll(date =&gt; date.ToString(&quot;MM/dd/yyyy HH:mm:ss&quot;)));&#xA;    Console.WriteLine(String.Format(&quot;listDate[{0}] : {1}&quot;, i, startDates));&#xA;}" DisplayName="Invoke Code Split Diff Month" sap:VirtualizedContainerService.HintSize="333.6,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+          <ui:InvokeCode.Arguments>
+            <InArgument x:TypeArguments="x:String" x:Key="in_rangeDatePeriod">[in_rangeDatePeriod]</InArgument>
+            <OutArgument x:TypeArguments="scg:List(scg:List(s:DateTime))" x:Key="out_listRangeDatePeriod">[out_listRangeDatePeriod]</OutArgument>
+          </ui:InvokeCode.Arguments>
+        </ui:InvokeCode>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Throw DisplayName="Throw Inner Exception" Exception="[New Exception(exception.InnerException.Message)]" sap:VirtualizedContainerService.HintSize="334.4,90.4" sap2010:WorkflowViewState.IdRef="Throw_1" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
