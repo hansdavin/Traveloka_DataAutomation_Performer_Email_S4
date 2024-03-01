@@ -1,7 +1,7 @@
 {
-  "name": "Traveloka_DataAutomation_Performer_Email_S3",
+  "name": "Traveloka_DataAutomation_Performer_Email_S4",
   "projectId": "bacfea0d-ed59-421e-a8fe-e087e5878522",
-  "description": "Robotic Enterprise Framework",
+  "description": "Traveloka_DataAutomation_Performer_Email_S4",
   "main": "Main.xaml",
   "dependencies": {
     "FuzzierSharp": "[3.0.1]",
