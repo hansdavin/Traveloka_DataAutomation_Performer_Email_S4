@@ -8,6 +8,7 @@
     <x:Property Name="in_name" Type="InArgument(x:String)" />
     <x:Property Name="in_sbSalesMessages" Type="InArgument(st:StringBuilder)" />
     <x:Property Name="in_sbInvoiceMessages" Type="InArgument(st:StringBuilder)" />
+    <x:Property Name="in_invoiceOpeningStatement" Type="InArgument(x:String)" />
   </x:Members>
   <this:Mail_BusinessError.in_datePeriod>
     <InArgument x:TypeArguments="s:DateTime" />
@@ -135,7 +136,8 @@
         <InArgument x:TypeArguments="x:String" xml:space="preserve">[htmlBody.
 Replace("{0}", in_name).
 Replace("{1}", in_sbSalesMessages.ToString).
-Replace("{2}", in_sbInvoiceMessages.ToString)]</InArgument>
+Replace("{2}", in_invoiceOpeningStatement).
+Replace("{3}", in_sbInvoiceMessages.ToString)]</InArgument>
       </Assign.Value>
     </Assign>
     <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="" Body="[htmlBody]" DisplayName="Send email reminder (SMTP)" Email="[username]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="434,223" sap2010:WorkflowViewState.IdRef="SendMail_3" IgnoreCRL="False" IsBodyHtml="True" Name="[in_Config(&quot;SenderName&quot;).ToString]" Port="465" SecureConnection="Auto" SecurePassword="[password]" Server="smtp.gmail.com" Subject="[String.Format(&quot;{0} Retrieval Status - {1}&quot;, in_TransactionItem.SpecificContent(&quot;Business Partner&quot;).ToString , in_datePeriod.ToString(&quot;MMMM yyyy&quot;))]" To="[in_emailTo]">
