@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1103.2,2991.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>825.6,2991.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Portal_DownloadDialog_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="56">
@@ -110,7 +110,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message Portal_DownloadDialog" sap:VirtualizedContainerService.HintSize="553.6,132.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;STEP : Portal_DownloadDialog&quot;]" />
-    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'chrome.exe  Save As'" sap:VirtualizedContainerService.HintSize="553.6,2704.8" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="85a2e0041d3ef8c2adca4e6dc6ba678b" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;">
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'chrome.exe  Save As'" sap:VirtualizedContainerService.HintSize="553.6,2704.8" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="85a2e0041d3ef8c2adca4e6dc6ba678b" Selector="&lt;wnd app='msedge.exe' cls='#32770' title='Save As' /&gt;">
       <ui:WindowScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -201,7 +201,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayBefore="{x:Null}" sap2010:Annotation.AnnotationText="Select &quot;All Files*&quot;" DelayAfter="2000" DisplayName="Select Item 'combo box  Save as type:'" sap:VirtualizedContainerService.HintSize="457.6,206.4" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="All Files*">
+            <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayBefore="{x:Null}" sap2010:Annotation.AnnotationText="Select &quot;All Files*&quot;" DelayAfter="2000" DisplayName="Select Item 'combo box  Save as type:'" sap:VirtualizedContainerService.HintSize="457.6,206.4" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="All*">
               <ui:SelectItem.Items>
                 <scg:List x:TypeArguments="x:String" Capacity="4">
                   <x:String>Microsoft Excel Comma Separated Values File (*.CSV)</x:String>
