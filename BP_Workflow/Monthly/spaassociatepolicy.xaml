@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1032,6980</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,7102</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>webbeds_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -160,7 +160,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Main takeaways:&#xA;1. In monthly BP, set the date range according to the month of email's subject&#xA;2. Set global datetime in orchestrator asset to default (;)&#xA;3. Set global date end period in orchestrator&#xA;4. Check local folder path if file already exists or not" DisplayName="spaassociatepolicy" sap:VirtualizedContainerService.HintSize="1042,6915" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Main takeaways:&#xA;1. In monthly BP, set the date range according to the month of email's subject&#xA;2. Set global datetime in orchestrator asset to default (;)&#xA;3. Set global date end period in orchestrator&#xA;4. Check local folder path if file already exists or not" DisplayName="spaassociatepolicy" sap:VirtualizedContainerService.HintSize="1042,7037" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strFilePath" />
       <Variable x:TypeArguments="x:Boolean" Name="isFileExist" />
@@ -294,7 +294,7 @@
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists for final file" Exists="[isFileExist]" sap:VirtualizedContainerService.HintSize="980,130" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[strFilePath]" PathType="File" />
-    <If sap2010:Annotation.AnnotationText="If file doesn't exists in local folder or rerun in config sheet is set to true" Condition="[Not isFileExist Or in_isRerun]" DisplayName="If - File does not exist or rerun" sap:VirtualizedContainerService.HintSize="980,5143" sap2010:WorkflowViewState.IdRef="If_3">
+    <If sap2010:Annotation.AnnotationText="If file doesn't exists in local folder or rerun in config sheet is set to true" Condition="[Not isFileExist Or in_isRerun]" DisplayName="If - File does not exist or rerun" sap:VirtualizedContainerService.HintSize="980,5265" sap2010:WorkflowViewState.IdRef="If_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -303,7 +303,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="946,4751" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="946,4873" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -643,7 +643,7 @@
             </ui:ForEach>
           </Sequence>
           <ui:LogMessage DisplayName="End of filtering emails" sap:VirtualizedContainerService.HintSize="884,132" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString + &quot;: Filtering email done&quot;]" />
-          <Sequence DisplayName="Processing attachment" sap:VirtualizedContainerService.HintSize="884,1532" sap2010:WorkflowViewState.IdRef="Sequence_101">
+          <Sequence DisplayName="Processing attachment" sap:VirtualizedContainerService.HintSize="884,1654" sap2010:WorkflowViewState.IdRef="Sequence_101">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="ienAttachment" />
               <Variable x:TypeArguments="x:Boolean" Name="FolderPathExists" />
@@ -651,6 +651,7 @@
               <Variable x:TypeArguments="sd:DataTable" Name="dtFinTable" />
               <Variable x:TypeArguments="ss:SecureString" Name="passwordExcel" />
               <Variable x:TypeArguments="x:String" Name="sheetName" />
+              <Variable x:TypeArguments="x:String" Name="cleanedPassword" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -706,6 +707,14 @@
               </Assign.Value>
             </Assign>
             <ui:GetRobotCredential TimeoutMS="{x:Null}" Username="{x:Null}" AssetName="RPA209_SPAAssociate_Excel" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="450,181" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[passwordExcel]" />
+            <Assign DisplayName="Replace XX on asset to in_dateperiod year" sap:VirtualizedContainerService.HintSize="450,122" sap2010:WorkflowViewState.IdRef="Assign_32">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[cleanedPassword]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[New System.Net.NetworkCredential(String.Empty, passwordExcel).Password.Replace("XX", in_datePeriod.ToString("yy"))]</InArgument>
+              </Assign.Value>
+            </Assign>
             <Sequence DisplayName="Remove password and convert to xlsx" sap:VirtualizedContainerService.HintSize="450,417" sap2010:WorkflowViewState.IdRef="Sequence_120">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -714,10 +723,18 @@
               </sap:WorkflowViewStateService.ViewState>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom_Workflow\Excel_RemovePasswordProtection.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,153" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="Custom_Workflow\Excel_RemovePasswordProtection.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_strRawFileName">[ienAttachment.First]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_strPID">[in_TransactionItem.SpecificContent("PID").ToString]</InArgument>
-                  <InArgument x:TypeArguments="s:DateTime" x:Key="in_dtPeriod">[in_datePeriod]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_strFilePassword">[New System.Net.NetworkCredential(String.Empty, passwordExcel).Password]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_strRawFileName">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ienAttachment.First" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_strPID">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="s:DateTime" x:Key="in_dtPeriod">
+                    <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="in_datePeriod" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_strFilePassword">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cleanedPassword" />
+                  </InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom_Workflow\Convert_Copy_Files.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="Custom_Workflow\Convert_Copy_Files.xaml">
