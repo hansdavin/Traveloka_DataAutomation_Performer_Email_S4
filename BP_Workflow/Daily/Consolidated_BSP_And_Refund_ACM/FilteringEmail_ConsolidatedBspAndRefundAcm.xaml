@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="FilteringEmail_ConsolidatedBspIata" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="FilteringEmail_ConsolidatedBspAndRefundAcm" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
     <x:Property Name="in_RegionCode" Type="InArgument(x:String)" />
@@ -7,14 +7,14 @@
     <x:Property Name="in_DatePeriod" Type="InArgument(s:DateTime)" />
     <x:Property Name="out_AttachmentName" Type="OutArgument(x:String)" />
   </x:Members>
-  <this:FilteringEmail_ConsolidatedBspIata.in_ListMailMessages>
+  <this:FilteringEmail_ConsolidatedBspAndRefundAcm.in_ListMailMessages>
     <InArgument x:TypeArguments="scg:List(snm:MailMessage)" />
-  </this:FilteringEmail_ConsolidatedBspIata.in_ListMailMessages>
+  </this:FilteringEmail_ConsolidatedBspAndRefundAcm.in_ListMailMessages>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>825.6,1295.2</sap:VirtualizedContainerService.HintSize>
-  <sap2010:WorkflowViewState.IdRef>FilteringEmail_ConsolidatedBspIata_1</sap2010:WorkflowViewState.IdRef>
+  <sap:VirtualizedContainerService.HintSize>1123,1290</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>FilteringEmail_ConsolidatedBspAndRefundAcm_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -151,7 +151,7 @@
       <AssemblyReference>System.CodeDom</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="FilteringEmail_ConsolidatedBspIata" sap:VirtualizedContainerService.HintSize="609.6,1230.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="FilteringEmail_ConsolidatedBspAndRefundAcm" sap:VirtualizedContainerService.HintSize="610,1225" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="isSubjectValid" />
       <Variable x:TypeArguments="x:Boolean" Name="isDatePeriodValid" />
@@ -170,21 +170,21 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="547.2,132.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} [{1}]: {2}&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, Now, &quot;Filtering email ...&quot;)]" />
-    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="[intListMailIndex]" DisplayName="For Each email" sap:VirtualizedContainerService.HintSize="547.2,977.6" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[in_listMailMessages]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="548,132" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} [{1}]: {2}&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, Now, &quot;Filtering email ...&quot;)]" />
+    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="[intListMailIndex]" DisplayName="For Each email" sap:VirtualizedContainerService.HintSize="548,974" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[in_listMailMessages]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="snm:MailMessage">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="email" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body of for each email" sap:VirtualizedContainerService.HintSize="512,828.8" sap2010:WorkflowViewState.IdRef="Sequence_74">
+          <Sequence DisplayName="Body of for each email" sap:VirtualizedContainerService.HintSize="512,825" sap2010:WorkflowViewState.IdRef="Sequence_74">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:MultipleAssign DisplayName="Multiple Assign - Set default validation status to false" sap:VirtualizedContainerService.HintSize="449.6,234.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_11">
+            <ui:MultipleAssign DisplayName="Multiple Assign - Set default validation status to false" sap:VirtualizedContainerService.HintSize="450,234" sap2010:WorkflowViewState.IdRef="MultipleAssign_11">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_33">
@@ -228,7 +228,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:MultipleAssign>
-            <Sequence DisplayName="Validate email subject" sap:VirtualizedContainerService.HintSize="449.6,123.2" sap2010:WorkflowViewState.IdRef="Sequence_67">
+            <Sequence DisplayName="Validate email subject" sap:VirtualizedContainerService.HintSize="450,121" sap2010:WorkflowViewState.IdRef="Sequence_67">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -416,17 +416,11 @@
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This function is to check whether the attachment contains all the keywords from config (but this function allows a typo in the word)" Code="int minScoreThreshold = 75;&#xD;&#xA;bool matchedWithTolerance = true;&#xD;&#xA;&#xD;&#xA;foreach (string keyword in in_ListOfKeyword) {&#xD;&#xA;    List&lt;string&gt; emailAttachmentWords = in_EmailAttachment.Split('.', '_', '-').Where(word =&gt; !String.IsNullOrEmpty(word)).ToList();&#xD;&#xA;&#xD;&#xA;    // Compare the keyword to each word within the email attachment&#xD;&#xA;    bool keywordMatched = emailAttachmentWords.Any(word =&gt; Fuzz.Ratio(word, keyword) &gt;= minScoreThreshold);&#xD;&#xA;&#xD;&#xA;    if (!keywordMatched)&#xD;&#xA;    {&#xD;&#xA;        matchedWithTolerance = false;&#xD;&#xA;        break;&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (matchedWithTolerance) {&#xD;&#xA;&#x9;out_IsAttachmentValid = true;&#xD;&#xA;}&#xD;&#xA;else out_IsAttachmentValid = false;" DisplayName="Function to check whether email attachment is correct" sap:VirtualizedContainerService.HintSize="353.6,264.8" sap2010:WorkflowViewState.IdRef="InvokeCode_6" Language="CSharp">
+                            <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This function is to check whether the attachment contains all the keywords from config (but this function allows a typo in the word)" Code="int minScoreThreshold = 75;&#xA;bool matchedWithTolerance = true;&#xA;&#xA;foreach (string keyword in in_ListOfKeyword) {&#xA;    List&lt;string&gt; emailAttachmentWords = in_EmailAttachment.Split('.', '_', '-').Where(word =&gt; !String.IsNullOrEmpty(word)).ToList();&#xA;&#xA;    // Compare the keyword to each word within the email attachment&#xA;    bool keywordMatched = emailAttachmentWords.Any(word =&gt; Fuzz.Ratio(word, keyword) &gt;= minScoreThreshold);&#xA;&#xA;    if (!keywordMatched)&#xA;    {&#xA;        matchedWithTolerance = false;&#xA;        break;&#xA;    }&#xA;}&#xA;&#xA;if (matchedWithTolerance) {&#xA;&#x9;out_IsAttachmentValid = true;&#xA;}&#xA;else out_IsAttachmentValid = false;" DisplayName="Function to check whether email attachment is correct" sap:VirtualizedContainerService.HintSize="353.6,264.8" sap2010:WorkflowViewState.IdRef="InvokeCode_6" Language="CSharp">
                               <ui:InvokeCode.Arguments>
-                                <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_ListOfKeyword">
-                                  <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="listKeywordAttachment" />
-                                </InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailAttachment">
-                                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Path.GetFileName(attachment.Name)" />
-                                </InArgument>
-                                <OutArgument x:TypeArguments="x:Boolean" x:Key="out_IsAttachmentValid">
-                                  <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="isAttachmentValid" />
-                                </OutArgument>
+                                <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_ListOfKeyword">[listKeywordAttachment]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailAttachment">[Path.GetFileName(attachment.Name)]</InArgument>
+                                <OutArgument x:TypeArguments="x:Boolean" x:Key="out_IsAttachmentValid">[isAttachmentValid]</OutArgument>
                               </ui:InvokeCode.Arguments>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -517,7 +511,7 @@
                 </If.Else>
               </If>
             </Sequence>
-            <If Condition="[isAttachmentValid AndAlso&#xD;&#xA;(out_AttachmentName.ToUpper.Contains(in_RegionCode.ToUpper) AndAlso email.Subject.ToUpper.Contains(in_RegionCode.ToUpper))]" DisplayName="Validate Region Code" sap:VirtualizedContainerService.HintSize="449.6,92.8" sap2010:WorkflowViewState.IdRef="If_23">
+            <If Condition="[isAttachmentValid AndAlso&#xA;(out_AttachmentName.ToUpper.Contains(in_RegionCode.ToUpper) AndAlso email.Subject.ToUpper.Contains(in_RegionCode.ToUpper))]" DisplayName="Validate Region Code" sap:VirtualizedContainerService.HintSize="449.6,92.8" sap2010:WorkflowViewState.IdRef="If_23">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -551,7 +545,7 @@
                 </Sequence>
               </If.Else>
             </If>
-            <If Condition="[isSubjectValid AndAlso&#xD;&#xA;isDatePeriodValid AndAlso&#xD;&#xA;isAttachmentValid AndAlso&#xD;&#xA;isRegionCodeValid]" DisplayName="If attachment, subject, datePeriod, and regionCode is correct" sap:VirtualizedContainerService.HintSize="449.6,76" sap2010:WorkflowViewState.IdRef="If_22">
+            <If Condition="[isSubjectValid AndAlso&#xA;isDatePeriodValid AndAlso&#xA;isAttachmentValid AndAlso&#xA;isRegionCodeValid]" DisplayName="If attachment, subject, datePeriod, and regionCode is correct" sap:VirtualizedContainerService.HintSize="449.6,76" sap2010:WorkflowViewState.IdRef="If_22">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
