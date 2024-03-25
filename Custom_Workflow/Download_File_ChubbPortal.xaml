@@ -10,7 +10,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>772,2946.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>597.6,2946.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Download_File_ChubbPortal_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -132,6 +132,10 @@
       <AssemblyReference>System.CodeDom</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Download_File_ChubbPortal" sap:VirtualizedContainerService.HintSize="608,2881.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -510,9 +514,15 @@
           </If>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom_Workflow\Portal_DownloadDialog.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="449.6,136.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Custom_Workflow\Portal_DownloadDialog.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_filePath">[in_rawFolderPath]</InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_pathRawFile">[out_pathRawFile]</OutArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_fileType">zip</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_filePath">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_rawFolderPath" />
+              </InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_pathRawFile">
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_pathRawFile" />
+              </OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_fileType">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="If(in_TransactionItem.SpecificContent(&quot;Key&quot;).ToString.Contains(&quot;ptmitrajasapratama&quot;), &quot;.zip&quot;, Path.GetExtension(in_TransactionItem.SpecificContent(&quot;File Name Attachment&quot;).ToString))" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>
