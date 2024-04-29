@@ -401,11 +401,7 @@
                       <Variable x:TypeArguments="x:String" Name="strEmailSubjectConfig" />
                       <Variable x:TypeArguments="x:String" Name="strEmailSubject" />
                       <Variable x:TypeArguments="scg:List(x:String)" Name="listKeywordSubject" />
-                      <Variable x:TypeArguments="x:Boolean" Name="isSubjectValid">
-                        <Variable.Default>
-                          <Literal x:TypeArguments="x:Boolean" />
-                        </Variable.Default>
-                      </Variable>
+                      <Variable x:TypeArguments="x:Boolean" Default="False" Name="isSubjectValid" />
                     </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -466,7 +462,7 @@
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <If sap2010:Annotation.AnnotationText="If not matched then skip to next email or break if already last email" Condition="[System.Text.RegularExpressions.Regex.IsMatch(attachment.Name, strFileNamePattern, RegexOptions.IgnoreCase) AndAlso&#xD;&#xA;(&#xD;&#xA;&#x9;attachment.Name.Contains(in_datePeriod.ToString(&quot;yyyyMMdd&quot;))&#xD;&#xA;)]" DisplayName="If - File attachment name matches with regex pattern created from config" sap:VirtualizedContainerService.HintSize="530,547" sap2010:WorkflowViewState.IdRef="If_14">
+                                    <If sap2010:Annotation.AnnotationText="If not matched then skip to next email or break if already last email" Condition="[System.Text.RegularExpressions.Regex.IsMatch(attachment.Name, strFileNamePattern, RegexOptions.IgnoreCase) AndAlso&#xA;(&#xA;&#x9;attachment.Name.Contains(in_datePeriod.ToString(&quot;yyyyMMdd&quot;))&#xA;)]" DisplayName="If - File attachment name matches with regex pattern created from config" sap:VirtualizedContainerService.HintSize="530,547" sap2010:WorkflowViewState.IdRef="If_14">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -696,9 +692,7 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom_Workflow\Delete_Folder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,153" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="Custom_Workflow\Delete_Folder.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="in_strFolderPath">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strFolderPath" />
-                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strFolderPath">[strFolderPath]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder - Destination folder" sap:VirtualizedContainerService.HintSize="434,120" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[strFolderPath]" />
@@ -709,7 +703,7 @@
                 <OutArgument x:TypeArguments="x:String">[assetName]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">RPAXXX_Bcaconsumerlending_Zip</InArgument>
+                <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("Credential Zip").ToString]</InArgument>
               </Assign.Value>
             </Assign>
             <ui:GetRobotCredential TimeoutMS="{x:Null}" Username="{x:Null}" AssetName="[assetName]" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="434,181" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[zipPassword]" />
@@ -723,38 +717,20 @@
             </Assign>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom_Workflow\Extract_Files.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,153" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_22" UnSafe="False" WorkflowFileName="Custom_Workflow\Extract_Files.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
-                  <VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_strRawFolderPath">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strRawFolderPath" />
-                </InArgument>
-                <InOutArgument x:TypeArguments="x:String" x:Key="io_strRawFilePath">
-                  <VisualBasicReference x:TypeArguments="x:String" ExpressionText="rawFilePath" />
-                </InOutArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_strZipPassword">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="New System.Net.NetworkCredential(String.Empty, zipPassword).Password" />
-                </InArgument>
+                <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strRawFolderPath">[strRawFolderPath]</InArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_strRawFilePath">[rawFilePath]</InOutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strZipPassword">[New System.Net.NetworkCredential(String.Empty, zipPassword).Password]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:CopyFile ContinueOnError="{x:Null}" Destination="[strFilePath]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="434,194" sap2010:WorkflowViewState.IdRef="CopyFile_2" Overwrite="True" Path="[rawFilePath]" />
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Add_Queue_Item.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" UnSafe="False" WorkflowFileName="Custom_Workflow\Add_Queue_Item.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                  <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-                </InArgument>
-                <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
-                  <VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
-                </InArgument>
-                <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">
-                  <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="in_datePeriod" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_strFilePath">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strFilePath" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_strRawFilePath">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ienAttachment.First" />
-                </InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+                <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[in_datePeriod]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strFilePath">[strFilePath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strRawFilePath">[ienAttachment.First]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="in_strDateRange">
                   <Literal x:TypeArguments="x:String" Value="" />
                 </InArgument>
