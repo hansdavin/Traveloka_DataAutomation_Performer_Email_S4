@@ -1014,12 +1014,24 @@
                           <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dtFilteredData]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="496,148" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[sheet]" WorkbookPath="[strFilePath]" />
                           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Add_Queue_Item.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="496,136.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="Custom_Workflow\Add_Queue_Item.xaml">
                             <ui:InvokeWorkflowFile.Arguments>
-                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-                              <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-                              <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[dtDateEnd]</InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_strFilePath">[strFilePath]</InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_strRawFilePath">[strRawFilePath]</InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_strDateRange">[strDateRange]</InArgument>
+                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                                <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+                              </InArgument>
+                              <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
+                                <VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
+                              </InArgument>
+                              <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">
+                                <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="tempDateEnd" />
+                              </InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_strFilePath">
+                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strFilePath" />
+                              </InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_strRawFilePath">
+                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strRawFilePath" />
+                              </InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_strDateRange">
+                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strDateRange" />
+                              </InArgument>
                             </ui:InvokeWorkflowFile.Arguments>
                           </ui:InvokeWorkflowFile>
                         </Sequence>
