@@ -321,7 +321,7 @@
                 <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
               </InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_label">
-                <Literal x:TypeArguments="x:String">iata</Literal>
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem.SpecificContent(&quot;Key&quot;).ToString.Substring(0,4)" />
               </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
