@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="scootairways30" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="scootairways30" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_dicPath" Type="InArgument(scg:Dictionary(x:String, x:String))" />
     <x:Property Name="in_datePeriod" Type="InArgument(s:DateTime)" />
@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1398,6414</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1031.2,6284</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>scootairways30_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -147,7 +147,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Main takeaways:&#xA;1. In weekly BP, set the date according to the end date of email's subject&#xA;2. Set global datetime in orchestrator asset to default (;)&#xA;3. Set global date end period in orchestrator&#xA;4. Check local folder path if file already exists or not&#xD;&#xA;5. Daily (in_datePeriod - 1)" DisplayName="scootairways30" sap:VirtualizedContainerService.HintSize="1041,6349" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Main takeaways:&#xA;1. In weekly BP, set the date according to the end date of email's subject&#xA;2. Set global datetime in orchestrator asset to default (;)&#xA;3. Set global date end period in orchestrator&#xA;4. Check local folder path if file already exists or not&#xA;5. Daily (in_datePeriod - 1)" DisplayName="scootairways30" sap:VirtualizedContainerService.HintSize="1041.6,6219.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strFilePath" />
       <Variable x:TypeArguments="x:Boolean" Name="isFileExist" />
@@ -158,27 +158,14 @@
       <Variable x:TypeArguments="s:DateTime" Name="dtDateStart" />
       <Variable x:TypeArguments="s:DateTime" Name="dtDateEnd" />
       <Variable x:TypeArguments="snm:MailMessage" Name="correctEmailFound" />
-      <Variable x:TypeArguments="x:Int32" Name="intWeekPeriod" />
-      <Variable x:TypeArguments="scg:Dictionary(x:Int32, x:String)" Name="dicPeriod" />
-      <Variable x:TypeArguments="scg:List(s:DateTime)" Name="listDateStartEnd" />
       <Variable x:TypeArguments="s:String[]" Name="arrPattern" />
       <Variable x:TypeArguments="x:String" Name="strEmailSubject" />
       <Variable x:TypeArguments="x:String" Name="strEmailSubjectConfig" />
       <Variable x:TypeArguments="scg:List(x:String)" Name="listKeywordSubject" />
       <Variable x:TypeArguments="x:Boolean" Default="False" Name="isSubjectValid" />
-      <Variable x:TypeArguments="x:String" Name="strCapturedDate" />
       <Variable x:TypeArguments="x:Boolean" Default="False" Name="isDatePeriodValid" />
-      <Variable x:TypeArguments="x:String" Name="strCellPattern" />
       <Variable x:TypeArguments="x:String" Name="strExcelParameter" />
       <Variable x:TypeArguments="x:String" Name="strAssetName" />
-      <Variable x:TypeArguments="x:String" Name="strColumn" />
-      <Variable x:TypeArguments="x:String" Name="strSheet" />
-      <Variable x:TypeArguments="x:String" Name="strFirstColumn" />
-      <Variable x:TypeArguments="x:String" Name="strHeaderAddress" />
-      <Variable x:TypeArguments="sd:DataTable" Name="dtRawData" />
-      <Variable x:TypeArguments="x:String" Name="strHeaderCol" />
-      <Variable x:TypeArguments="x:Int32" Name="intHeaderRow" />
-      <Variable x:TypeArguments="sd:DataTable" Name="dtFilteredData" />
       <Variable x:TypeArguments="x:Boolean" Name="isAttachmentValid" />
       <Variable x:TypeArguments="x:String" Name="regionCodeAddress" />
       <Variable x:TypeArguments="x:String" Name="regionCodeFile" />
@@ -193,8 +180,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message start of workflow" sap:VirtualizedContainerService.HintSize="979,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} [{1}]&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, Now)]" />
-    <Sequence sap2010:Annotation.AnnotationText="This function as a way enable robot to write log correctly in case any unknown exception is thrown" DisplayName="Set date asset" sap:VirtualizedContainerService.HintSize="979,123" sap2010:WorkflowViewState.IdRef="Sequence_110">
+    <ui:LogMessage DisplayName="Log Message start of workflow" sap:VirtualizedContainerService.HintSize="979.2,124.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} [{1}]&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, Now)]" />
+    <Sequence sap2010:Annotation.AnnotationText="This function as a way enable robot to write log correctly in case any unknown exception is thrown" DisplayName="Set date asset" sap:VirtualizedContainerService.HintSize="979.2,100.8" sap2010:WorkflowViewState.IdRef="Sequence_110">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -259,7 +246,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:InvokeWorkflowFile>
     </Sequence>
-    <ui:MultipleAssign sap2010:Annotation.AnnotationText="For weekly run the path and file name is different, folder for monthly and weekly &quot;yyyy-MM&quot; and for file name weekly &quot;ddMMMyy-ddMMMyy&quot; for monthly &quot;MMMyy&quot;" DisplayName="Multiple Assign - for path folder" sap:VirtualizedContainerService.HintSize="979,220" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign sap2010:Annotation.AnnotationText="For weekly run the path and file name is different, folder for monthly and weekly &quot;yyyy-MM&quot; and for file name weekly &quot;ddMMMyy-ddMMMyy&quot; for monthly &quot;MMMyy&quot;" DisplayName="Multiple Assign - for path folder" sap:VirtualizedContainerService.HintSize="979.2,256" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -811,9 +798,6 @@
             </sap:WorkflowViewStateService.ViewState>
           </ui:LogMessage>
           <Sequence DisplayName="Processing attachment" sap:VirtualizedContainerService.HintSize="903,662" sap2010:WorkflowViewState.IdRef="Sequence_101">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="ienAttachment" />
-            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>

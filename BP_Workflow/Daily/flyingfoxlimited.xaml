@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>845.6,2320</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>799.2,2128.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>flyingfoxlimited_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -106,23 +106,16 @@
       <AssemblyReference>FuzzierSharp</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Main takeaways:&#xA;1. Set global datetime in orchestrator asset to default (;)&#xA;2. Set global date end period in orchestrator&#xA;3. Check local folder path if file already exists or not&#xA;4. Daily: H-1" DisplayName="flyingfoxlimited" sap:VirtualizedContainerService.HintSize="517.6,2255.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Main takeaways:&#xA;1. Set global datetime in orchestrator asset to default (;)&#xA;2. Set global date end period in orchestrator&#xA;3. Check local folder path if file already exists or not&#xA;4. Daily: H-1" DisplayName="flyingfoxlimited" sap:VirtualizedContainerService.HintSize="517.6,2064" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strFilePath" />
       <Variable x:TypeArguments="x:Boolean" Name="isFileExist" />
       <Variable x:TypeArguments="x:String" Name="strFolderPath" />
-      <Variable x:TypeArguments="x:Boolean" Name="isFileNotRerunExist" />
-      <Variable x:TypeArguments="x:Boolean" Name="isFolderNotRerunExist" />
       <Variable x:TypeArguments="x:String" Name="strRawFolderPath" />
       <Variable x:TypeArguments="x:String" Name="strRawFilePathQueue" />
       <Variable x:TypeArguments="x:String" Name="strRawFilePath" />
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="listMailMessages" />
-      <Variable x:TypeArguments="x:Boolean" Name="isEmailFound" />
       <Variable x:TypeArguments="x:String" Name="strFileNamePattern" />
-      <Variable x:TypeArguments="x:String" Name="strAttachmentId" />
-      <Variable x:TypeArguments="s:String[]" Name="arrPattern" />
-      <Variable x:TypeArguments="x:String" Name="strEmailSubjectConfig" />
-      <Variable x:TypeArguments="x:String" Name="strEmailSubject" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -130,9 +123,9 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="455.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} [{1}]&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, Now)]" />
-    <ui:SetAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;GlobalVarAsset&quot;).ToString]" DisplayName="Set Asset - Reset global var" sap:VirtualizedContainerService.HintSize="455.2,194.4" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[&quot;;&quot;]" />
-    <If Condition="[Not in_isRerun]" DisplayName="If normal run, adddays(-1)" sap:VirtualizedContainerService.HintSize="455.2,52.8" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="455.2,124.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} [{1}]&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, Now)]" />
+    <ui:SetAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;GlobalVarAsset&quot;).ToString]" DisplayName="Set Asset - Reset global var" sap:VirtualizedContainerService.HintSize="455.2,226.4" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[&quot;;&quot;]" />
+    <If Condition="[Not in_isRerun]" DisplayName="If normal run, adddays(-1)" sap:VirtualizedContainerService.HintSize="455.2,56.8" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -166,7 +159,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:MultipleAssign DisplayName="Multiple Assign - Path" sap:VirtualizedContainerService.HintSize="455.2,52.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Multiple Assign - Path" sap:VirtualizedContainerService.HintSize="455.2,56.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -242,39 +235,17 @@
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom_Workflow\Common_Email_Filter.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="378.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Custom_Workflow\Common_Email_Filter.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">
-                <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="in_dicPath" />
-              </InArgument>
-              <InArgument x:TypeArguments="scg:List(snm:MailMessage)" x:Key="in_listMailMessages">
-                <VisualBasicValue x:TypeArguments="scg:List(snm:MailMessage)" ExpressionText="listMailMessages" />
-              </InArgument>
-              <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">
-                <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="in_datePeriod" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">
-                <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="in_isRerun" />
-              </InArgument>
-              <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
-                <VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_strFileNamePattern">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strFileNamePattern" />
-              </InArgument>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_strFilePath">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strFilePath" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_strRawFolderPath">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strRawFolderPath" />
-              </InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_strRawFilePathQueue">
-                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="strRawFilePathQueue" />
-              </OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_strRawFilePath">
-                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="strRawFilePath" />
-              </OutArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[in_dicPath]</InArgument>
+              <InArgument x:TypeArguments="scg:List(snm:MailMessage)" x:Key="in_listMailMessages">[listMailMessages]</InArgument>
+              <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[in_datePeriod]</InArgument>
+              <InArgument x:TypeArguments="x:Boolean" x:Key="in_isRerun">[in_isRerun]</InArgument>
+              <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strFileNamePattern">[strFileNamePattern]</InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strFilePath">[strFilePath]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strRawFolderPath">[strRawFolderPath]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_strRawFilePathQueue">[strRawFilePathQueue]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_strRawFilePath">[strRawFilePath]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Convert_Copy_Files.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="378.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Custom_Workflow\Convert_Copy_Files.xaml">

@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>935.2,7173.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>935.2,7115.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>momorefund_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -149,7 +149,7 @@
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Main takeaways:&#xA;1. Daily report&#xA;2. Set global datetime in orchestrator asset to default (;)&#xA;3. Set global date end period in orchestrator&#xA;4. Check local folder path if file already exists or not&#xA;5. H-1" DisplayName="momorefund" sap:VirtualizedContainerService.HintSize="945.6,7108.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Main takeaways:&#xA;1. Daily report&#xA;2. Set global datetime in orchestrator asset to default (;)&#xA;3. Set global date end period in orchestrator&#xA;4. Check local folder path if file already exists or not&#xA;5. H-1" DisplayName="momorefund" sap:VirtualizedContainerService.HintSize="945.6,7050.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strFilePath" />
       <Variable x:TypeArguments="x:Boolean" Name="isFileExist" />
@@ -164,18 +164,13 @@
       <Variable x:TypeArguments="snm:MailMessage" Name="correctEmailFound" />
       <Variable x:TypeArguments="scg:List(x:String)" Name="listKeywordSubject" />
       <Variable x:TypeArguments="x:Boolean" Name="isUrlFound" />
-      <Variable x:TypeArguments="x:String" Name="fileName" />
       <Variable x:TypeArguments="x:String" Name="urlIdentifier" />
       <Variable x:TypeArguments="str:Match" Name="urlMatch" />
       <Variable x:TypeArguments="x:String" Name="urlPattern" />
       <Variable x:TypeArguments="x:String" Name="url" />
       <Variable x:TypeArguments="x:String" Name="datePattern" />
       <Variable x:TypeArguments="x:String" Name="dateFormat" />
-      <Variable x:TypeArguments="scg:List(s:DateTime)" Name="dates">
-        <Variable.Default>
-          <VisualBasicValue x:TypeArguments="scg:List(s:DateTime)" ExpressionText="New List(Of DateTime)" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="scg:List(s:DateTime)" Default="[New List(Of DateTime)]" Name="dates" />
       <Variable x:TypeArguments="x:String" Name="sheetName" />
       <Variable x:TypeArguments="x:String" Name="startCellAddress" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtRawMomo" />
@@ -190,7 +185,7 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="883.2,124.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} [{1}]&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, Now)]" />
     <ui:SetAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;GlobalVarAsset&quot;).ToString]" DisplayName="Set Asset - Reset global var" sap:VirtualizedContainerService.HintSize="883.2,226.4" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[&quot;;&quot;]" />
-    <Sequence DisplayName="Sequence - Set date asset" sap:VirtualizedContainerService.HintSize="883.2,115.2" sap2010:WorkflowViewState.IdRef="Sequence_38">
+    <Sequence DisplayName="Sequence - Set date asset" sap:VirtualizedContainerService.HintSize="883.2,56.8" sap2010:WorkflowViewState.IdRef="Sequence_38">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -464,7 +459,7 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This function is to check whether the subject contains all the keywords from config (but this function allows a typo in the word) and check if the date captured from subject equal to week period" Code="int minScoreThreshold = 75;&#xD;&#xA;bool matchedWithTolerance = true;&#xD;&#xA;&#xD;&#xA;foreach (string keyword in in_ListOfKeyword) {&#xD;&#xA;&#x9;// Split the email subject into individual words&#xD;&#xA;    List&lt;string&gt; emailSubjectWords = in_EmailSubject.Split(' ').Where(item =&gt; !String.IsNullOrEmpty(item)).ToList();&#xD;&#xA;&#xD;&#xA;    // Compare the keyword to each word within the email subject&#xD;&#xA;    bool keywordMatched = emailSubjectWords.Any(word =&gt; Fuzz.Ratio(word, keyword) &gt;= minScoreThreshold);&#xD;&#xA;&#xD;&#xA;    if (!keywordMatched)&#xD;&#xA;    {&#xD;&#xA;        matchedWithTolerance = false;&#xD;&#xA;        break;&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (matchedWithTolerance) {&#xD;&#xA;&#x9;out_IsSubjectValid = true;&#xD;&#xA;}&#xD;&#xA;else out_IsSubjectValid = false;" DisplayName="Function to check whether email subject is correct" sap:VirtualizedContainerService.HintSize="353.6,264" sap2010:WorkflowViewState.IdRef="InvokeCode_2" Language="CSharp">
+                            <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This function is to check whether the subject contains all the keywords from config (but this function allows a typo in the word) and check if the date captured from subject equal to week period" Code="int minScoreThreshold = 75;&#xA;bool matchedWithTolerance = true;&#xA;&#xA;foreach (string keyword in in_ListOfKeyword) {&#xA;&#x9;// Split the email subject into individual words&#xA;    List&lt;string&gt; emailSubjectWords = in_EmailSubject.Split(' ').Where(item =&gt; !String.IsNullOrEmpty(item)).ToList();&#xA;&#xA;    // Compare the keyword to each word within the email subject&#xA;    bool keywordMatched = emailSubjectWords.Any(word =&gt; Fuzz.Ratio(word, keyword) &gt;= minScoreThreshold);&#xA;&#xA;    if (!keywordMatched)&#xA;    {&#xA;        matchedWithTolerance = false;&#xA;        break;&#xA;    }&#xA;}&#xA;&#xA;if (matchedWithTolerance) {&#xA;&#x9;out_IsSubjectValid = true;&#xA;}&#xA;else out_IsSubjectValid = false;" DisplayName="Function to check whether email subject is correct" sap:VirtualizedContainerService.HintSize="353.6,264" sap2010:WorkflowViewState.IdRef="InvokeCode_2" Language="CSharp">
                               <ui:InvokeCode.Arguments>
                                 <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_ListOfKeyword">[listKeywordSubject]</InArgument>
                                 <InArgument x:TypeArguments="x:String" x:Key="in_EmailSubject">[strEmailSubject.Trim]</InArgument>
@@ -784,7 +779,6 @@
           </ui:LogMessage>
           <Sequence DisplayName="Processing attachment" sap:VirtualizedContainerService.HintSize="787.2,1969.6" sap2010:WorkflowViewState.IdRef="Sequence_71">
             <Sequence.Variables>
-              <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="ienAttachment" />
               <Variable x:TypeArguments="x:String" Name="strRawFilePath" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>

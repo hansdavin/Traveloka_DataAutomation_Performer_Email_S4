@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="citmalaysia" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="citmalaysia" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_dicPath" Type="InArgument(scg:Dictionary(x:String, x:String))" />
     <x:Property Name="in_datePeriod" Type="InArgument(s:DateTime)" />
@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>739.2,2812</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>799.2,2572.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>citmalaysia_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -130,7 +130,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="CIT Malaysia run daily except weekend and public holiday&#xA;Ie: &#xA;Single Content&#xA;Email sent date : 6&#xA;Attachment date name : 6&#xA;Content : 5&#xA;&#xA;Multiple Content (Batch 3 day - Saturday, Sunday, Monday)&#xA;Email sent date : 6&#xA;Attachment date name : 4&#xA;Content : 4,5,6&#xA;&#xA;Main takeaways:&#xA;1. Set global datetime in orchestrator asset to default (;)&#xA;2. Set global date end period in orchestrator&#xA;3. Check local folder path if file already exists or not&#xA;4. H-2" DisplayName="citmalaysia" sap:VirtualizedContainerService.HintSize="576.8,2747.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="CIT Malaysia run daily except weekend and public holiday&#xA;Ie: &#xA;Single Content&#xA;Email sent date : 6&#xA;Attachment date name : 6&#xA;Content : 5&#xA;&#xA;Multiple Content (Batch 3 day - Saturday, Sunday, Monday)&#xA;Email sent date : 6&#xA;Attachment date name : 4&#xA;Content : 4,5,6&#xA;&#xA;Main takeaways:&#xA;1. Set global datetime in orchestrator asset to default (;)&#xA;2. Set global date end period in orchestrator&#xA;3. Check local folder path if file already exists or not&#xA;4. H-2" DisplayName="citmalaysia" sap:VirtualizedContainerService.HintSize="576.8,2508" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strFilePath" />
       <Variable x:TypeArguments="x:Boolean" Name="isFileExist" />
@@ -147,10 +147,6 @@
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="listMailMessages" />
       <Variable x:TypeArguments="x:String" Name="strRawFilePathQueue" />
       <Variable x:TypeArguments="x:String" Name="strRawFilePath" />
-      <Variable x:TypeArguments="scg:List(s:DateTime)" Name="listDateRange" />
-      <Variable x:TypeArguments="scg:List(x:String)" Name="listFilePath" />
-      <Variable x:TypeArguments="sd:DataTable" Name="dtRawFile" />
-      <Variable x:TypeArguments="x:String" Default="dd/MM/yyyy" Name="reportDatePattern" />
       <Variable x:TypeArguments="s:DateTime" Name="dateEndPeriod" />
       <Variable x:TypeArguments="s:DateTime" Default="[DateTime.MinValue]" Name="dateStartPeriod" />
     </Sequence.Variables>
@@ -160,8 +156,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="514.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} [{1}]&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, Now)]" />
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="514.4,164" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="514.4,124.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} [{1}]&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, Now)]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="514.4,196" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -353,10 +349,6 @@
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="480.6666666666667,973.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_6">
-          <Sequence.Variables>
-            <Variable x:TypeArguments="x:Int32" Name="intFilePathIndex" />
-            <Variable x:TypeArguments="scg:Dictionary(x:Int32, x:String)" Name="dictSplit" />
-          </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>

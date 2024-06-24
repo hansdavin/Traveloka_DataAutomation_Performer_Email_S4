@@ -10,7 +10,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1408.8,3368</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>802.4,3368</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ExportReportDetails_Iata_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="84">
@@ -164,7 +164,6 @@
       <Variable x:TypeArguments="x:Int32" Name="intRowDebitLimit" />
       <Variable x:TypeArguments="x:Int32" Name="intRowCreditLimit" />
       <Variable x:TypeArguments="x:String" Name="strColumnWidth" />
-      <Variable x:TypeArguments="x:String" Name="strTotalBilling" />
       <Variable x:TypeArguments="x:Int32" Name="intRowOPE" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtScope" />
     </Sequence.Variables>

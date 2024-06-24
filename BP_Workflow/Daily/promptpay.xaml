@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="promptpay" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System.Text.RegularExpressions" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="promptpay" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_dicPath" Type="InArgument(scg:Dictionary(x:String, x:String))" />
     <x:Property Name="in_datePeriod" Type="InArgument(s:DateTime)" />
@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>837.6,6234.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>837.6,6210.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>promptpay_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -148,7 +148,7 @@
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Main takeaways:&#xA;1. Daily report&#xA;2. Set global datetime in orchestrator asset to default (;)&#xA;3. Set global date end period in orchestrator&#xA;4. Check local folder path if file already exists or not&#xA;5. H-1" DisplayName="promptpay" sap:VirtualizedContainerService.HintSize="848,6169.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Main takeaways:&#xA;1. Daily report&#xA;2. Set global datetime in orchestrator asset to default (;)&#xA;3. Set global date end period in orchestrator&#xA;4. Check local folder path if file already exists or not&#xA;5. H-1" DisplayName="promptpay" sap:VirtualizedContainerService.HintSize="848,6145.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strFilePath" />
       <Variable x:TypeArguments="x:Boolean" Name="isFileExist" />
@@ -162,17 +162,6 @@
       <Variable x:TypeArguments="s:String[]" Name="arrPattern" />
       <Variable x:TypeArguments="snm:MailMessage" Name="correctEmailFound" />
       <Variable x:TypeArguments="scg:List(x:String)" Name="listKeywordSubject" />
-      <Variable x:TypeArguments="x:Boolean" Name="isUrlFound" />
-      <Variable x:TypeArguments="str:Match" Name="urlMatch" />
-      <Variable x:TypeArguments="x:String" Name="urlIdentifier" />
-      <Variable x:TypeArguments="x:String" Name="urlPattern" />
-      <Variable x:TypeArguments="x:String" Name="url" />
-      <Variable x:TypeArguments="x:String" Name="datePattern" />
-      <Variable x:TypeArguments="str:Match" Name="dateMatch" />
-      <Variable x:TypeArguments="x:String" Name="capturedDate" />
-      <Variable x:TypeArguments="s:DateTime" Name="dateCaptured" />
-      <Variable x:TypeArguments="x:String" Name="regionCode" />
-      <Variable x:TypeArguments="x:String" Name="attachmentName" />
       <Variable x:TypeArguments="x:Boolean" Name="isAttachmentValid" />
       <Variable x:TypeArguments="x:String" Name="fileName" />
       <Variable x:TypeArguments="scg:List(s:DateTime)" Name="listCapturedDate" />
@@ -183,9 +172,9 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="785.6,132.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} [{1}]&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, Now)]" />
-    <ui:SetAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;GlobalVarAsset&quot;).ToString]" DisplayName="Set Asset - Reset global var" sap:VirtualizedContainerService.HintSize="785.6,234.4" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[&quot;;&quot;]" />
-    <Sequence DisplayName="Sequence - Set date asset" sap:VirtualizedContainerService.HintSize="785.6,358.4" sap2010:WorkflowViewState.IdRef="Sequence_38">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="785.6,124.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} [{1}]&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, Now)]" />
+    <ui:SetAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;GlobalVarAsset&quot;).ToString]" DisplayName="Set Asset - Reset global var" sap:VirtualizedContainerService.HintSize="785.6,226.4" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[&quot;;&quot;]" />
+    <Sequence DisplayName="Sequence - Set date asset" sap:VirtualizedContainerService.HintSize="785.6,350.4" sap2010:WorkflowViewState.IdRef="Sequence_38">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -632,18 +621,10 @@
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="449.6,132.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[String.Format(&quot;{0} [{1}]: {2}&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, Now, &quot;Processing attachment ...&quot;)]" />
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Set_EmailDate_Asset.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="449.6,153.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_37" UnSafe="False" WorkflowFileName="Custom_Workflow\Set_EmailDate_Asset.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateStartPeriod">
-                  <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="listCapturedDate.First" />
-                </InArgument>
-                <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateEndPeriod">
-                  <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="listCapturedDate.Last" />
-                </InArgument>
-                <InArgument x:TypeArguments="scg:List(s:DateTime)" x:Key="in_listStartEndRange">
-                  <VisualBasicValue x:TypeArguments="scg:List(s:DateTime)" ExpressionText="New List(of DateTime)" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_assetName">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;GlobalVarAsset&quot;).ToString" />
-                </InArgument>
+                <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateStartPeriod">[listCapturedDate.First]</InArgument>
+                <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateEndPeriod">[listCapturedDate.Last]</InArgument>
+                <InArgument x:TypeArguments="scg:List(s:DateTime)" x:Key="in_listStartEndRange">[New List(of DateTime)]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_assetName">[in_Config("GlobalVarAsset").ToString]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -732,24 +713,12 @@
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Add_Queue_Item.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="449.6,136.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_35" UnSafe="False" WorkflowFileName="Custom_Workflow\Add_Queue_Item.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                  <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-                </InArgument>
-                <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
-                  <VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
-                </InArgument>
-                <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">
-                  <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="in_datePeriod" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_strFilePath">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strFilePath" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_strRawFilePath">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strRawFilePath" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_strDateRange">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strDateRange" />
-                </InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+                <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[in_datePeriod]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strFilePath">[strFilePath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strRawFilePath">[strRawFilePath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_strDateRange">[strDateRange]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>

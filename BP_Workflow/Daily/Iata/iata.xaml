@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="iata" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System.Text.RegularExpressions" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="iata" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_dicPath" Type="InArgument(scg:Dictionary(x:String, x:String))" />
     <x:Property Name="in_datePeriod" Type="InArgument(s:DateTime)" />
@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1408.8,2224</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>802.4,2224</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>iata_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -153,22 +153,7 @@
       <Variable x:TypeArguments="x:String" Name="strFolderPath" />
       <Variable x:TypeArguments="x:String" Name="strRawFolderPath" />
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="listMailMessages" />
-      <Variable x:TypeArguments="x:Boolean" Name="isSubjectValid" />
-      <Variable x:TypeArguments="x:Boolean" Name="isDatePeriodValid" />
-      <Variable x:TypeArguments="x:String" Name="strEmailSubjectConfig" />
-      <Variable x:TypeArguments="x:String" Name="strEmailSubject" />
-      <Variable x:TypeArguments="s:String[]" Name="arrPattern" />
       <Variable x:TypeArguments="snm:MailMessage" Name="correctEmailFound" />
-      <Variable x:TypeArguments="scg:List(x:String)" Name="listKeywordSubject" />
-      <Variable x:TypeArguments="x:Boolean" Name="isUrlFound" />
-      <Variable x:TypeArguments="str:Match" Name="urlMatch" />
-      <Variable x:TypeArguments="x:String" Name="urlIdentifier" />
-      <Variable x:TypeArguments="x:String" Name="urlPattern" />
-      <Variable x:TypeArguments="x:String" Name="url" />
-      <Variable x:TypeArguments="x:String" Name="datePattern" />
-      <Variable x:TypeArguments="str:Match" Name="dateMatch" />
-      <Variable x:TypeArguments="x:String" Name="capturedDate" />
-      <Variable x:TypeArguments="s:DateTime" Name="dateCaptured" />
       <Variable x:TypeArguments="x:String" Name="regionCode" />
       <Variable x:TypeArguments="x:String" Name="attachmentName" />
     </Sequence.Variables>
@@ -308,21 +293,11 @@
           </sap:WorkflowViewStateService.ViewState>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetEmails.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="430.4,145.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Custom_Workflow\Get_Emails.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <OutArgument x:TypeArguments="scg:List(snm:MailMessage)" x:Key="out_listMailMessages">
-                <VisualBasicReference x:TypeArguments="scg:List(snm:MailMessage)" ExpressionText="listMailMessages" />
-              </OutArgument>
-              <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">
-                <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="in_datePeriod" />
-              </InArgument>
-              <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
-                <VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
-              </InArgument>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_label">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem.SpecificContent(&quot;Key&quot;).ToString.Substring(0,4)" />
-              </InArgument>
+              <OutArgument x:TypeArguments="scg:List(snm:MailMessage)" x:Key="out_listMailMessages">[listMailMessages]</OutArgument>
+              <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[in_datePeriod]</InArgument>
+              <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_label">[in_TransactionItem.SpecificContent("Key").ToString.Substring(0,4)]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <If sap2010:Annotation.AnnotationText="Check if emails from specified senderdomain exists within period range" Condition="[Not listMailMessages.Count &gt; 0]" DisplayName="Check if emails found" sap:VirtualizedContainerService.HintSize="430.4,116.8" sap2010:WorkflowViewState.IdRef="If_5">
