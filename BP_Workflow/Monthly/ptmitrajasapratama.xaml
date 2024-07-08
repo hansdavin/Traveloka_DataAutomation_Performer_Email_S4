@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>959.2,7012.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>959.2,7078.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ptmitrajasapratama_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -136,7 +136,7 @@
       <AssemblyReference>System.Management.Automation</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Main takeaways:&#xA;1. In monthly BP, set the date range according to the month of email's subject&#xA;2. Set global datetime in orchestrator asset to default (;)&#xA;3. Set global date end period in orchestrator&#xA;4. Check local folder path if file already exists or not" DisplayName="ptmitrajasapratama" sap:VirtualizedContainerService.HintSize="969.6,6948" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Main takeaways:&#xA;1. In monthly BP, set the date range according to the month of email's subject&#xA;2. Set global datetime in orchestrator asset to default (;)&#xA;3. Set global date end period in orchestrator&#xA;4. Check local folder path if file already exists or not" DisplayName="ptmitrajasapratama" sap:VirtualizedContainerService.HintSize="969.6,7013.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strFilePath" />
       <Variable x:TypeArguments="x:Boolean" Name="isFileExist" />
@@ -315,7 +315,7 @@
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
     <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[isFileExist]" sap:VirtualizedContainerService.HintSize="907.2,122.4" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[strFilePath]" PathType="File" />
-    <If sap2010:Annotation.AnnotationText="If file doesn't exists in local folder or rerun in config sheet is set to true" Condition="[Not isFileExist Or in_isRerun]" DisplayName="If - File does not exist or rerun" sap:VirtualizedContainerService.HintSize="907.2,5757.6" sap2010:WorkflowViewState.IdRef="If_3">
+    <If sap2010:Annotation.AnnotationText="If file doesn't exists in local folder or rerun in config sheet is set to true" Condition="[Not isFileExist Or in_isRerun]" DisplayName="If - File does not exist or rerun" sap:VirtualizedContainerService.HintSize="907.2,5823.2" sap2010:WorkflowViewState.IdRef="If_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -324,7 +324,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="873.6,5361.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="873.6,5427.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -915,15 +915,15 @@
               </sap:WorkflowViewStateService.ViewState>
             </ui:ForEach>
           </Sequence>
-          <Sequence DisplayName="Sending url to ChubbPortal for initiating download process" sap:VirtualizedContainerService.HintSize="811.2,1588" sap2010:WorkflowViewState.IdRef="Sequence_64">
+          <Sequence DisplayName="Sending url to ChubbPortal for initiating download process" sap:VirtualizedContainerService.HintSize="811.2,1644.8" sap2010:WorkflowViewState.IdRef="Sequence_64">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Start processing email" sap:VirtualizedContainerService.HintSize="548,124.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString + &quot;: Initiating download process from portal...&quot;]" />
-            <Assign DisplayName="Assign - assetName" sap:VirtualizedContainerService.HintSize="548,113.6" sap2010:WorkflowViewState.IdRef="Assign_10">
+            <ui:LogMessage DisplayName="Start processing email" sap:VirtualizedContainerService.HintSize="547.2,124.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString + &quot;: Initiating download process from portal...&quot;]" />
+            <Assign DisplayName="Assign - assetName" sap:VirtualizedContainerService.HintSize="547.2,113.6" sap2010:WorkflowViewState.IdRef="Assign_10">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[assetName]</OutArgument>
               </Assign.To>
@@ -931,13 +931,13 @@
                 <InArgument x:TypeArguments="x:String">RPA197_Chubb_MJP_PH_Cred</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each - URL" sap:VirtualizedContainerService.HintSize="548,1180.8" sap2010:WorkflowViewState.IdRef="ForEach`1_9" Values="[urlList]">
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each - URL" sap:VirtualizedContainerService.HintSize="547.2,1237.6" sap2010:WorkflowViewState.IdRef="ForEach`1_9" Values="[urlList]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:String" Name="url" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,1024" sap2010:WorkflowViewState.IdRef="Sequence_66">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,1080.8" sap2010:WorkflowViewState.IdRef="Sequence_66">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1018,7 +1018,7 @@
                       </TryCatch.Catches>
                     </TryCatch>
                     <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="449.6,166.4" sap2010:WorkflowViewState.IdRef="KillProcess_3" ProcessName="chrome" />
-                    <Assign DisplayName="Assign - isUrlValid" sap:VirtualizedContainerService.HintSize="449.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_20">
+                    <Assign DisplayName="Assign - isUrlValid" sap:VirtualizedContainerService.HintSize="449.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_20">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Boolean">[isUrlValid]</OutArgument>
                       </Assign.To>
@@ -1026,6 +1026,7 @@
                         <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                       </Assign.Value>
                     </Assign>
+                    <ui:Break DisplayName="Break from loops" sap:VirtualizedContainerService.HintSize="449.6,48" sap2010:WorkflowViewState.IdRef="Break_2" />
                   </Sequence>
                 </ActivityAction>
               </ui:ForEach.Body>
@@ -1036,7 +1037,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ForEach>
-            <If Condition="[Not isUrlValid]" DisplayName="If - Captured URL is not valid" sap:VirtualizedContainerService.HintSize="548,48" sap2010:WorkflowViewState.IdRef="If_19">
+            <If Condition="[Not isUrlValid]" DisplayName="If - Captured URL is not valid" sap:VirtualizedContainerService.HintSize="547.2,48" sap2010:WorkflowViewState.IdRef="If_19">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1064,14 +1065,14 @@
               </If.Else>
             </If>
           </Sequence>
-          <Sequence DisplayName="Processing downloaded file from portal" sap:VirtualizedContainerService.HintSize="811,1650" sap2010:WorkflowViewState.IdRef="Sequence_51">
+          <Sequence DisplayName="Processing downloaded file from portal" sap:VirtualizedContainerService.HintSize="811.2,1658.4" sap2010:WorkflowViewState.IdRef="Sequence_51">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="Assign - archivePassword" sap:VirtualizedContainerService.HintSize="452,114" sap2010:WorkflowViewState.IdRef="Assign_18">
+            <Assign DisplayName="Assign - archivePassword" sap:VirtualizedContainerService.HintSize="451.2,113.6" sap2010:WorkflowViewState.IdRef="Assign_18">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[archivePassword]</OutArgument>
               </Assign.To>
@@ -1081,7 +1082,7 @@
                 </InArgument>
               </Assign.Value>
             </Assign>
-            <If Condition="[Not String.IsNullOrEmpty(archivePassword)]" DisplayName="If zip password found, then extract with password" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="If_17">
+            <If Condition="[Not String.IsNullOrEmpty(archivePassword)]" DisplayName="If zip password found, then extract with password" sap:VirtualizedContainerService.HintSize="451.2,56.8" sap2010:WorkflowViewState.IdRef="If_17">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1123,7 +1124,7 @@
                 </Sequence>
               </If.Else>
             </If>
-            <ui:TimeoutScope DisplayName="Timeout Scope - Prevent robot waiting forever for user input" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="TimeoutScope_1" ThrowExceptionAfter="00:02:00" TimeoutMessage="Please make sure the correct password for extracting files is provided.">
+            <ui:TimeoutScope DisplayName="Timeout Scope - Prevent robot waiting forever for user input" sap:VirtualizedContainerService.HintSize="451.2,56.8" sap2010:WorkflowViewState.IdRef="TimeoutScope_1" ThrowExceptionAfter="00:02:00" TimeoutMessage="Please make sure the correct password for extracting files is provided.">
               <ui:TimeoutScope.Body>
                 <ActivityAction x:TypeArguments="Activity">
                   <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,171" sap2010:WorkflowViewState.IdRef="Sequence_62">
@@ -1150,7 +1151,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:TimeoutScope>
-            <Assign DisplayName="Assign - fileToDownload" sap:VirtualizedContainerService.HintSize="452,113" sap2010:WorkflowViewState.IdRef="Assign_13">
+            <Assign DisplayName="Assign - fileToDownload" sap:VirtualizedContainerService.HintSize="451.2,113.6" sap2010:WorkflowViewState.IdRef="Assign_13">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[fileToDownload]</OutArgument>
               </Assign.To>
@@ -1158,7 +1159,7 @@
                 <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("File Name Attachment").ToString]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign - Get xlsx files inside raw folder" sap:VirtualizedContainerService.HintSize="452,113" sap2010:WorkflowViewState.IdRef="Assign_9">
+            <Assign DisplayName="Assign - Get xlsx files inside raw folder" sap:VirtualizedContainerService.HintSize="451.2,113.6" sap2010:WorkflowViewState.IdRef="Assign_9">
               <Assign.To>
                 <OutArgument x:TypeArguments="s:String[]">[rawFiles]</OutArgument>
               </Assign.To>
@@ -1166,7 +1167,7 @@
                 <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(strRawFolderPath, $"*{Path.GetExtension(fileToDownload)}", SearchOption.AllDirectories)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Create a list of subject keyword from config" sap:VirtualizedContainerService.HintSize="452,113" sap2010:WorkflowViewState.IdRef="Assign_12">
+            <Assign DisplayName="Create a list of subject keyword from config" sap:VirtualizedContainerService.HintSize="451.2,113.6" sap2010:WorkflowViewState.IdRef="Assign_12">
               <Assign.To>
                 <OutArgument x:TypeArguments="scg:List(x:String)">[listKeywordFileToDownload]</OutArgument>
               </Assign.To>
@@ -1174,19 +1175,19 @@
                 <InArgument x:TypeArguments="scg:List(x:String)">[fileToDownload.Trim.Split(" "c, "."c, "_"c, "-"c).Where(Function(item) Not String.IsNullOrEmpty(item)).ToList]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each - File" sap:VirtualizedContainerService.HintSize="452,546" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[rawFiles]">
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each - File" sap:VirtualizedContainerService.HintSize="451.2,550.4" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[rawFiles]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:String" Name="file" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,390" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,393.6" sap2010:WorkflowViewState.IdRef="Sequence_56">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This function is to check whether the attachment contains all the keywords from config (but this function allows a typo in the word)" Code="int minScoreThreshold = 75;&#xA;bool matchedWithTolerance = true;&#xA;List&lt;string&gt; emailAttachmentWords = in_EmailAttachment.Split(' ', '.', '_', '-').Where(word =&gt; !String.IsNullOrEmpty(word)).ToList();&#xA;Console.WriteLine($&quot;in_ListOfKeyword: {String.Join(&quot;, &quot;, in_ListOfKeyword)}&quot;);&#xA;Console.WriteLine($&quot;emailAttachmentWords: {String.Join(&quot;, &quot;, emailAttachmentWords)}&quot;);&#xA;&#xA;foreach (string keyword in in_ListOfKeyword) {&#xA;    // Compare the keyword to each word within the email attachment&#xA;    bool keywordMatched = emailAttachmentWords.Any(word =&gt; &#xA;&#x9;{&#xA;&#x9;&#x9;Console.WriteLine($&quot;Word: {word}; Keyword: {keyword}&quot;);&#xA;&#x9;&#x9;Console.WriteLine($&quot;Ratio: {Fuzz.Ratio(word, keyword)}&quot;); &#xA;&#x9;&#x9;return Fuzz.Ratio(word, keyword) &gt;= minScoreThreshold;&#xA;&#x9;});&#xA;&#xA;    if (!keywordMatched)&#xA;    {&#xA;        matchedWithTolerance = false;&#xA;        break;&#xA;    }&#xA;}&#xA;&#xA;if (matchedWithTolerance) {&#xA;&#x9;out_IsAttachmentValid = true;&#xA;}&#xA;else out_IsAttachmentValid = false;" DisplayName="Function to check whether the file is correct" sap:VirtualizedContainerService.HintSize="354,254" sap2010:WorkflowViewState.IdRef="InvokeCode_3" Language="CSharp">
+                    <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This function is to check whether the attachment contains all the keywords from config (but this function allows a typo in the word)" Code="int minScoreThreshold = 75;&#xA;bool matchedWithTolerance = true;&#xA;List&lt;string&gt; emailAttachmentWords = in_EmailAttachment.Split(' ', '.', '_', '-').Where(word =&gt; !String.IsNullOrEmpty(word)).ToList();&#xA;Console.WriteLine($&quot;in_ListOfKeyword: {String.Join(&quot;, &quot;, in_ListOfKeyword)}&quot;);&#xA;Console.WriteLine($&quot;emailAttachmentWords: {String.Join(&quot;, &quot;, emailAttachmentWords)}&quot;);&#xA;&#xA;foreach (string keyword in in_ListOfKeyword) {&#xA;    // Compare the keyword to each word within the email attachment&#xA;    bool keywordMatched = emailAttachmentWords.Any(word =&gt; &#xA;&#x9;{&#xA;&#x9;&#x9;Console.WriteLine($&quot;Word: {word}; Keyword: {keyword}&quot;);&#xA;&#x9;&#x9;Console.WriteLine($&quot;Ratio: {Fuzz.Ratio(word, keyword)}&quot;); &#xA;&#x9;&#x9;return Fuzz.Ratio(word, keyword) &gt;= minScoreThreshold;&#xA;&#x9;});&#xA;&#xA;    if (!keywordMatched)&#xA;    {&#xA;        matchedWithTolerance = false;&#xA;        break;&#xA;    }&#xA;}&#xA;&#xA;if (matchedWithTolerance) {&#xA;&#x9;out_IsAttachmentValid = true;&#xA;}&#xA;else out_IsAttachmentValid = false;" DisplayName="Function to check whether the file is correct" sap:VirtualizedContainerService.HintSize="353.6,256.8" sap2010:WorkflowViewState.IdRef="InvokeCode_3" Language="CSharp">
                       <ui:InvokeCode.Arguments>
                         <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_ListOfKeyword">[listKeywordFileToDownload]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="in_EmailAttachment">[Path.GetFileName(file)]</InArgument>
@@ -1200,7 +1201,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:InvokeCode>
-                    <If Condition="[isAttachmentValid]" DisplayName="If - Delete unnecessary file" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="If_16">
+                    <If Condition="[isAttachmentValid]" DisplayName="If - Delete unnecessary file" sap:VirtualizedContainerService.HintSize="353.6,48" sap2010:WorkflowViewState.IdRef="If_16">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1245,7 +1246,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ForEach>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom_Workflow\Convert_Copy_Files.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="452,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="Custom_Workflow\Convert_Copy_Files.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom_Workflow\Convert_Copy_Files.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="451.2,145.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="Custom_Workflow\Convert_Copy_Files.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="in_strFilePath">[strFilePath]</InArgument>
                 <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[in_datePeriod]</InArgument>
@@ -1255,14 +1256,14 @@
                 <InArgument x:TypeArguments="x:String" x:Key="in_strRawFilePath">[strRawFilePath]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom_Workflow\Delete_Sheets.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="452,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_22" UnSafe="False" WorkflowFileName="Custom_Workflow\Delete_Sheets.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom_Workflow\Delete_Sheets.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="451.2,145.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_22" UnSafe="False" WorkflowFileName="Custom_Workflow\Delete_Sheets.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_listSheetToRemove">[New List(of String)]</InArgument>
                 <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_listSheetToKeep">[New List(of String) from { in_TransactionItem.SpecificContent("Credential").ToString }]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="in_strFilePath">[strFilePath]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom_Workflow\Add_Queue_Item.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="452,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" UnSafe="False" WorkflowFileName="Custom_Workflow\Add_Queue_Item.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom_Workflow\Add_Queue_Item.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="451.2,136.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" UnSafe="False" WorkflowFileName="Custom_Workflow\Add_Queue_Item.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                 <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>

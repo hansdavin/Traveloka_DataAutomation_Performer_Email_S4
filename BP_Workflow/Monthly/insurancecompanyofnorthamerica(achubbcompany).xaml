@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>959.2,6594.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>959.2,6508.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>insurancecompanyofnorthamerica(achubbcompany)_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -133,7 +133,7 @@
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Main takeaways:&#xA;1. In monthly BP, set the date range according to the month of email's subject&#xA;2. Set global datetime in orchestrator asset to default (;)&#xA;3. Set global date end period in orchestrator&#xA;4. Check local folder path if file already exists or not&#xA;TODO:&#xA;Remove &lt;&gt; from URL: &lt;https://securetransfer-apac.chubb.com/w/PF53zzctB4jNnMOVcu0A9qXUE8s8gDalSS3HZ1711tf7r&gt;" DisplayName="insurancecompanyofnorthamerica(achubbcompany)" sap:VirtualizedContainerService.HintSize="969.6,6529.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Main takeaways:&#xA;1. In monthly BP, set the date range according to the month of email's subject&#xA;2. Set global datetime in orchestrator asset to default (;)&#xA;3. Set global date end period in orchestrator&#xA;4. Check local folder path if file already exists or not&#xA;TODO:&#xA;Remove &lt;&gt; from URL: &lt;https://securetransfer-apac.chubb.com/w/PF53zzctB4jNnMOVcu0A9qXUE8s8gDalSS3HZ1711tf7r&gt;" DisplayName="insurancecompanyofnorthamerica(achubbcompany)" sap:VirtualizedContainerService.HintSize="969.6,6444" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strFilePath" />
       <Variable x:TypeArguments="x:Boolean" Name="isFileExist" />
@@ -300,7 +300,7 @@
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
     <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[isFileExist]" sap:VirtualizedContainerService.HintSize="907.2,122.4" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[strFilePath]" PathType="File" />
-    <If sap2010:Annotation.AnnotationText="If file doesn't exists in local folder or rerun in config sheet is set to true" Condition="[Not isFileExist Or in_isRerun]" DisplayName="If - File does not exist or rerun" sap:VirtualizedContainerService.HintSize="907.2,5621.6" sap2010:WorkflowViewState.IdRef="If_3">
+    <If sap2010:Annotation.AnnotationText="If file doesn't exists in local folder or rerun in config sheet is set to true" Condition="[Not isFileExist Or in_isRerun]" DisplayName="If - File does not exist or rerun" sap:VirtualizedContainerService.HintSize="907.2,5536" sap2010:WorkflowViewState.IdRef="If_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -309,7 +309,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="873.6,5225.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="873.6,5140" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -351,7 +351,7 @@
               </Sequence>
             </If.Else>
           </If>
-          <Sequence DisplayName="Filtering emails" sap:VirtualizedContainerService.HintSize="811.2,2386.4" sap2010:WorkflowViewState.IdRef="Sequence_15">
+          <Sequence DisplayName="Filtering emails" sap:VirtualizedContainerService.HintSize="811.2,2330.4" sap2010:WorkflowViewState.IdRef="Sequence_15">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Int32" Name="intListMailIndex" />
             </Sequence.Variables>
@@ -361,13 +361,13 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="[intListMailIndex]" DisplayName="For Each email" sap:VirtualizedContainerService.HintSize="748.8,2265.6" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[listMailMessages]">
+            <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="[intListMailIndex]" DisplayName="For Each email" sap:VirtualizedContainerService.HintSize="748.8,2209.6" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[listMailMessages]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="snm:MailMessage">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="email" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body of for each email" sap:VirtualizedContainerService.HintSize="713.6,2117.6" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <Sequence DisplayName="Body of for each email" sap:VirtualizedContainerService.HintSize="713.6,2061.6" sap2010:WorkflowViewState.IdRef="Sequence_18">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -591,7 +591,7 @@
                         </If.Else>
                       </If>
                     </Sequence>
-                    <Sequence DisplayName="Validate URL" sap:VirtualizedContainerService.HintSize="651.2,1168.8" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                    <Sequence DisplayName="Validate URL" sap:VirtualizedContainerService.HintSize="651.2,1140.8" sap2010:WorkflowViewState.IdRef="Sequence_39">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -694,7 +694,7 @@
                           </If.Else>
                         </If>
                       </Sequence>
-                      <Sequence DisplayName="Looking for original URL" sap:VirtualizedContainerService.HintSize="588.8,877.6" sap2010:WorkflowViewState.IdRef="Sequence_67">
+                      <Sequence DisplayName="Looking for original URL" sap:VirtualizedContainerService.HintSize="588.8,849.6" sap2010:WorkflowViewState.IdRef="Sequence_67">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -847,7 +847,7 @@
                             </Sequence>
                           </If.Else>
                         </If>
-                        <If Condition="[Not (isUrlFound OrElse urlList.Count &gt; 0)]" DisplayName="Looking for original URL in forwarded email" sap:VirtualizedContainerService.HintSize="526.4,76" sap2010:WorkflowViewState.IdRef="If_20">
+                        <If Condition="[Not (isUrlFound OrElse urlList.Count &gt; 0)]" DisplayName="Looking for original URL in forwarded email" sap:VirtualizedContainerService.HintSize="526.4,48" sap2010:WorkflowViewState.IdRef="If_20">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -855,13 +855,13 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <If.Then>
-                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="592,1109" sap2010:WorkflowViewState.IdRef="Sequence_73">
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="592,1110.4" sap2010:WorkflowViewState.IdRef="Sequence_73">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="530,164" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
+                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="529.6,164" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
                                 <ui:MultipleAssign.AssignOperations>
                                   <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_26">
@@ -883,7 +883,7 @@
                                   </scg:List>
                                 </ui:MultipleAssign.AssignOperations>
                               </ui:MultipleAssign>
-                              <ui:ForEach x:TypeArguments="str:Match" CurrentIndex="{x:Null}" DisplayName="For Each - match" sap:VirtualizedContainerService.HintSize="530,400" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[urlMatches]">
+                              <ui:ForEach x:TypeArguments="str:Match" CurrentIndex="{x:Null}" DisplayName="For Each - match" sap:VirtualizedContainerService.HintSize="529.6,400.8" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[urlMatches]">
                                 <ui:ForEach.Body>
                                   <ActivityAction x:TypeArguments="str:Match">
                                     <ActivityAction.Argument>
@@ -956,7 +956,7 @@
                         </If>
                       </Sequence>
                     </Sequence>
-                    <If Condition="[isSubjectValid AndAlso&#xA;isDatePeriodValid AndAlso&#xA;isUrlFound]" DisplayName="If attachment and subject is correct" sap:VirtualizedContainerService.HintSize="651.2,576.8" sap2010:WorkflowViewState.IdRef="If_8">
+                    <If Condition="[isSubjectValid AndAlso&#xA;isDatePeriodValid AndAlso&#xA;isUrlFound]" DisplayName="If attachment and subject is correct" sap:VirtualizedContainerService.HintSize="651.2,548.8" sap2010:WorkflowViewState.IdRef="If_8">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -982,13 +982,13 @@
                         </Sequence>
                       </If.Then>
                       <If.Else>
-                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,164.8" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,136.8" sap2010:WorkflowViewState.IdRef="Sequence_26">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <If Condition="[intListMailIndex = (listMailMessages.Count - 1)]" DisplayName="If - Last index throw" sap:VirtualizedContainerService.HintSize="353.6,76" sap2010:WorkflowViewState.IdRef="If_7">
+                          <If Condition="[intListMailIndex = (listMailMessages.Count - 1)]" DisplayName="If - Last index throw" sap:VirtualizedContainerService.HintSize="353.6,48" sap2010:WorkflowViewState.IdRef="If_7">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1029,7 +1029,7 @@
               </sap:WorkflowViewStateService.ViewState>
             </ui:ForEach>
           </Sequence>
-          <Sequence DisplayName="Sending url to ChubbPortal for initiating download process" sap:VirtualizedContainerService.HintSize="811.2,2095.2" sap2010:WorkflowViewState.IdRef="Sequence_52">
+          <Sequence DisplayName="Sending url to ChubbPortal for initiating download process" sap:VirtualizedContainerService.HintSize="811.2,2065.6" sap2010:WorkflowViewState.IdRef="Sequence_52">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1045,13 +1045,13 @@
                 <InArgument x:TypeArguments="x:String">RPA197_Chubb_MJP_PH_Cred</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each - URL" sap:VirtualizedContainerService.HintSize="547.2,1267.2" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[urlList]">
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each - URL" sap:VirtualizedContainerService.HintSize="547.2,1237.6" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[urlList]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:String" Name="url" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,1110.4" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,1080.8" sap2010:WorkflowViewState.IdRef="Sequence_54">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1072,7 +1072,7 @@
                         <InArgument x:TypeArguments="x:String" x:Key="in_PathSaKey">[in_Config("PathSaKey").ToString]</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
-                    <Sequence DisplayName="Recreate raw folder" sap:VirtualizedContainerService.HintSize="449.6,115.2" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                    <Sequence DisplayName="Recreate raw folder" sap:VirtualizedContainerService.HintSize="449.6,56.8" sap2010:WorkflowViewState.IdRef="Sequence_55">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1087,7 +1087,7 @@
                       <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="388,103" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[strRawFolderPath]" />
                     </Sequence>
                     <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="449.6,166.4" sap2010:WorkflowViewState.IdRef="KillProcess_2" ProcessName="chrome" />
-                    <TryCatch DisplayName="Try Catch - Download_File_ChubbPortal" sap:VirtualizedContainerService.HintSize="449.6,84.8" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                    <TryCatch DisplayName="Try Catch - Download_File_ChubbPortal" sap:VirtualizedContainerService.HintSize="449.6,56.8" sap2010:WorkflowViewState.IdRef="TryCatch_3">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1133,7 +1133,7 @@
                       </TryCatch.Catches>
                     </TryCatch>
                     <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="449.6,166.4" sap2010:WorkflowViewState.IdRef="KillProcess_3" ProcessName="chrome" />
-                    <Assign DisplayName="Assign - isUrlValid" sap:VirtualizedContainerService.HintSize="449.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_11">
+                    <Assign DisplayName="Assign - isUrlValid" sap:VirtualizedContainerService.HintSize="449.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_11">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Boolean">[isUrlValid]</OutArgument>
                       </Assign.To>
@@ -1141,6 +1141,7 @@
                         <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                       </Assign.Value>
                     </Assign>
+                    <ui:Break DisplayName="Break from loops" sap:VirtualizedContainerService.HintSize="449.6,48" sap2010:WorkflowViewState.IdRef="Break_2" />
                   </Sequence>
                 </ActivityAction>
               </ui:ForEach.Body>
