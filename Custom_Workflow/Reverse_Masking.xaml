@@ -11,7 +11,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>868.8,615.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>724.8,962.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Reverse_Masking_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -116,7 +116,7 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Reverse_Masking" sap:VirtualizedContainerService.HintSize="512,390.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Reverse_Masking" sap:VirtualizedContainerService.HintSize="558.4,897.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="assetName" />
       <Variable x:TypeArguments="x:String" Name="encodingMapSheet" />
@@ -129,27 +129,27 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Get sheetId &amp; sheetName from asset" sap:VirtualizedContainerService.HintSize="449.6,56.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence DisplayName="Get sheetId &amp; sheetName from asset" sap:VirtualizedContainerService.HintSize="496,564" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign DisplayName="Assign - assetName" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign DisplayName="Assign - assetName" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_2">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[assetName]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="x:String">[Dev] RPA_Moon_EncodingMapSheetId</InArgument>
+          <InArgument x:TypeArguments="x:String">RPA_Moon_SEGEncodingMapGSheet</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[assetName]" CacheStrategy="None" DisplayName="Get Asset" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+      <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[assetName]" CacheStrategy="None" DisplayName="Get Asset" sap:VirtualizedContainerService.HintSize="433.6,174.4" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
         <ui:GetRobotAsset.Value>
           <OutArgument x:TypeArguments="x:String">[encodingMapSheet]</OutArgument>
         </ui:GetRobotAsset.Value>
       </ui:GetRobotAsset>
-      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="434,155" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="433.6,155.2" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -172,7 +172,7 @@
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
     </Sequence>
-    <uga:GSuiteApplicationScope Account="{x:Null}" ApiKey="{x:Null}" ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" Folder="{x:Null}" Password="{x:Null}" SecureCredentialSecret="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" AuthenticationType="ServiceAccountKey" DataStoreLocation="Local disk" DisplayName="GSuite Application Scope Use SAKey" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="449.6,56.8" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_1" KeyPath="[in_PathSaKey]" KeyType="JSON" OAuthClient="UiPath" Services="Unselected">
+    <uga:GSuiteApplicationScope Account="{x:Null}" ApiKey="{x:Null}" ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" Folder="{x:Null}" Password="{x:Null}" SecureCredentialSecret="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" AuthenticationType="ServiceAccountKey" DataStoreLocation="Local disk" DisplayName="GSuite Application Scope Use SAKey" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="496,56.8" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_1" KeyPath="[in_PathSaKey]" KeyType="JSON" OAuthClient="UiPath" Services="Unselected">
       <uga:GSuiteApplicationScope.AuthenticationScopes>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
           <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/spreadsheets</InArgument>
@@ -200,7 +200,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uga:GSuiteApplicationScope>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Console.WriteLine($&quot;Input Url: {io_Url}&quot;);&#xA;foreach (DataRow row in in_EncodingMap.Rows)&#xA;{&#xA;&#x9;string key = row[&quot;Key&quot;].ToString();&#xA;&#x9;string value = row[&quot;Value&quot;].ToString();&#xA;&#x9;io_Url = io_Url.Replace(key, value);&#xA;}&#xA;Console.WriteLine($&quot;Output Url: {io_Url}&quot;);" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="449.6,188" sap2010:WorkflowViewState.IdRef="InvokeCode_2" Language="CSharp">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Console.WriteLine($&quot;Input Url: {io_Url}&quot;);&#xA;foreach (DataRow row in in_EncodingMap.Rows)&#xA;{&#xA;&#x9;string key = row[&quot;Key&quot;].ToString();&#xA;&#x9;string value = row[&quot;Value&quot;].ToString();&#xA;&#x9;io_Url = io_Url.Replace(key, value);&#xA;}&#xA;Console.WriteLine($&quot;Output Url: {io_Url}&quot;);" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="496,188" sap2010:WorkflowViewState.IdRef="InvokeCode_2" Language="CSharp">
       <ui:InvokeCode.Arguments>
         <InOutArgument x:TypeArguments="x:String" x:Key="io_Url">[io_Url]</InOutArgument>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_EncodingMap">[dtEncodingMap]</InArgument>
