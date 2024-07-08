@@ -710,7 +710,7 @@
                                         <OutArgument x:TypeArguments="x:String">[urlPattern]</OutArgument>
                                       </ui:AssignOperation.To>
                                       <ui:AssignOperation.Value>
-                                        <InArgument x:TypeArguments="x:String">[$"(http[^""']*{urlIdentifier}[^""&gt;']*)"]</InArgument>
+                                        <InArgument x:TypeArguments="x:String">[$"(http[^""']*{urlIdentifier}[^""&gt;\r\n']*)"]</InArgument>
                                       </ui:AssignOperation.Value>
                                     </ui:AssignOperation>
                                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
