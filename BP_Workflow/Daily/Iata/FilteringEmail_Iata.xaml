@@ -13,7 +13,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1408.8,5540.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>969.6,5540.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>FilteringEmail_Iata_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -63,6 +63,7 @@
       <x:String>System.Xml.Serialization</x:String>
       <x:String>UiPath.CSV</x:String>
       <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>System.Collections.Specialized</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -149,6 +150,7 @@
       <AssemblyReference>System.Private.Xml</AssemblyReference>
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
       <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="" DisplayName="FilteringEmail_Iata" sap:VirtualizedContainerService.HintSize="945.6,5476" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -339,7 +341,7 @@
                 </TryCatch.Catches>
               </TryCatch>
             </Sequence>
-            <If sap2010:Annotation.AnnotationText="Date format : d MMM yyyy" Condition="[email.Subject.ToUpper.Contains(in_datePeriod.ToString(&quot;d MMM yyyy&quot;).ToUpper)]" DisplayName="Validate date period" sap:VirtualizedContainerService.HintSize="785.6,500" sap2010:WorkflowViewState.IdRef="If_20">
+            <If sap2010:Annotation.AnnotationText="Date format : d MMM yyyy" Condition="[CDate(email.Headers(&quot;Date&quot;)).ToShortDateString.Equals(in_DatePeriod.ToShortDateString)]" DisplayName="Validate date period" sap:VirtualizedContainerService.HintSize="785.6,500" sap2010:WorkflowViewState.IdRef="If_20">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
