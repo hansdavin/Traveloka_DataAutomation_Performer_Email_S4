@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>822.4,3822.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>848.8,3822.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>iata_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -173,7 +173,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:CommentOut DisplayName="Uncomment later if its needed for modifying date_period" sap:VirtualizedContainerService.HintSize="401.6,84.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut DisplayName="Uncomment later if its needed for modifying date_period" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
         <ui:CommentOut.Body>
           <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="592,548.8" sap2010:WorkflowViewState.IdRef="Sequence_66">
             <sap:WorkflowViewStateService.ViewState>
@@ -225,20 +225,12 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:CommentOut>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Set_EmailDate_Asset.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="401.6,136.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Custom_Workflow\Set_EmailDate_Asset.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Set_EmailDate_Asset.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,136.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Custom_Workflow\Set_EmailDate_Asset.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateStartPeriod">
-            <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="DateTime.MinValue" />
-          </InArgument>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateEndPeriod">
-            <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="in_datePeriod" />
-          </InArgument>
-          <InArgument x:TypeArguments="scg:List(s:DateTime)" x:Key="in_listStartEndRange">
-            <VisualBasicValue x:TypeArguments="scg:List(s:DateTime)" ExpressionText="New List(of DateTime)" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="in_assetName">
-            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;GlobalVarAsset&quot;).ToString" />
-          </InArgument>
+          <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateStartPeriod">[DateTime.MinValue]</InArgument>
+          <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateEndPeriod">[in_datePeriod]</InArgument>
+          <InArgument x:TypeArguments="scg:List(s:DateTime)" x:Key="in_listStartEndRange">[New List(of DateTime)]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_assetName">[in_Config("GlobalVarAsset").ToString]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -396,17 +388,13 @@
               </Sequence>
             </If.Else>
           </If>
-          <ui:Comment sap:VirtualizedContainerService.HintSize="449.6,126.4" sap2010:WorkflowViewState.IdRef="Comment_1" Text="TODO\n&#xD;&#xA;-Get date period from email body\n&#xD;&#xA;-Set new filepath\&#xD;&#xA;-Set date asset from date range\&#xD;&#xA;-Set date range\&#xD;&#xA;" />
+          <ui:Comment sap:VirtualizedContainerService.HintSize="449.6,126.4" sap2010:WorkflowViewState.IdRef="Comment_1" Text="TODO\n&#xA;-Get date period from email body\n&#xA;-Set new filepath\&#xA;-Set date asset from date range\&#xA;-Set date range\&#xA;" />
           <TryCatch DisplayName="Try Catch get period" sap:VirtualizedContainerService.HintSize="449.6,428" sap2010:WorkflowViewState.IdRef="TryCatch_1">
             <TryCatch.Try>
-              <ui:InvokeCode ContinueOnError="{x:Null}" Code="//string text = @&quot;Hi All, The following information is for the IATA billing period 9-15 Jul 2024 with a maturity date on 23 Jul 2024&quot;;&#xD;&#xA;string text = in_bodyEmail.Replace(&quot;*&quot;, &quot;&quot;);&#xD;&#xA;&#xD;&#xA;string pattern = @&quot;(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|[12][0-9]|3[01]) ([a-zA-Z]{3}) (\d{4})&quot;;&#xD;&#xA;Match match = Regex.Match(text, pattern);&#xD;&#xA;&#xD;&#xA;if (match.Success)&#xD;&#xA;{&#xD;&#xA;&#x9;string startDateString = match.Groups[1].Value + &quot; &quot; + match.Groups[3].Value + &quot; &quot; + match.Groups[4].Value;&#xD;&#xA;&#x9;string endDateString = match.Groups[2].Value + &quot; &quot; + match.Groups[3].Value + &quot; &quot; + match.Groups[4].Value;&#xD;&#xA;&#x9;&#xD;&#xA;    DateTime startDate = DateTime.ParseExact(startDateString, &quot;d MMM yyyy&quot;, CultureInfo.InvariantCulture);&#xD;&#xA;    DateTime endDate = DateTime.ParseExact(endDateString, &quot;d MMM yyyy&quot;, CultureInfo.InvariantCulture);&#xD;&#xA;    &#xD;&#xA;    List&lt;DateTime&gt; dates = new List&lt;DateTime&gt; {startDate, endDate };&#xD;&#xA;&#xD;&#xA;    Console.WriteLine(&quot;Start date: &quot; + dates[0]);&#xD;&#xA;    Console.WriteLine(&quot;End date: &quot; + dates[1]);&#xD;&#xA;&#x9;out_listDatePeriod = dates;&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;    throw new BusinessRuleException(&quot;Data not found, can't find period in body email&quot;);&#xD;&#xA;}" DisplayName="Invoke Code get period" sap:VirtualizedContainerService.HintSize="333.6,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+              <ui:InvokeCode ContinueOnError="{x:Null}" Code="//string text = @&quot;Hi All, The following information is for the IATA billing period 29 Jul-4 Aug 2024 with a maturity date on 23 Jul 2024&quot;;&#xD;&#xA;string text = in_bodyEmail.Replace(&quot;*&quot;, &quot;&quot;);&#xD;&#xA;&#xD;&#xA;string pattern = @&quot;(0?[1-9]|[12][0-9]|3[01])( [a-zA-Z]{3})?-(0?[1-9]|[12][0-9]|3[01]) ([a-zA-Z]{3}) (\d{4})&quot;;&#xD;&#xA;Match match = Regex.Match(text, pattern);&#xD;&#xA;&#xD;&#xA;if (match.Success)&#xD;&#xA;{&#xD;&#xA;string startDateString, endDateString;&#xD;&#xA;&#xD;&#xA;if (string.IsNullOrEmpty(match.Groups[2].Value))&#xD;&#xA;{&#xD;&#xA;&#x9;//Format 9-15 Jul 2024&#xD;&#xA;&#x9;Console.WriteLine(match.Value + &quot; match format dd-dd MMM yyyy&quot;);&#xD;&#xA;&#x9;startDateString = match.Groups[1].Value + &quot; &quot; + match.Groups[4].Value + &quot; &quot; + match.Groups[5].Value;&#xD;&#xA;&#x9;endDateString = match.Groups[3].Value + &quot; &quot; + match.Groups[4].Value + &quot; &quot; + match.Groups[5].Value;&#xD;&#xA;&#x9;Console.WriteLine(startDateString);&#xD;&#xA;&#x9;Console.WriteLine(endDateString);&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;&#x9;//Format 29 Jul-4 Aug 2024&#xD;&#xA;&#x9;Console.WriteLine(match.Value + &quot; match format dd MMM-dd MMM yyyy&quot;);&#xD;&#xA;&#x9;startDateString = match.Groups[1].Value + match.Groups[2].Value + &quot; &quot; + match.Groups[5].Value;&#xD;&#xA;&#x9;endDateString = match.Groups[3].Value + &quot; &quot; + match.Groups[4].Value + &quot; &quot; + match.Groups[5].Value;&#xD;&#xA;&#x9;Console.WriteLine(startDateString);&#xD;&#xA;&#x9;Console.WriteLine(endDateString);&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;DateTime startDate = DateTime.ParseExact(startDateString, &quot;d MMM yyyy&quot;, CultureInfo.InvariantCulture);&#xD;&#xA;DateTime endDate = DateTime.ParseExact(endDateString, &quot;d MMM yyyy&quot;, CultureInfo.InvariantCulture);&#xD;&#xA;&#xD;&#xA;List&lt;DateTime&gt; dates = new List&lt;DateTime&gt; {startDate, endDate };&#xD;&#xA;&#xD;&#xA;Console.WriteLine(&quot;Start date: &quot; + dates[0]);&#xD;&#xA;Console.WriteLine(&quot;End date: &quot; + dates[1]);&#xD;&#xA;out_listDatePeriod = dates;&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;throw new BusinessRuleException(&quot;Data not found, can't find period in body email&quot;);&#xD;&#xA;}" DisplayName="Invoke Code get period" sap:VirtualizedContainerService.HintSize="333.6,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
                 <ui:InvokeCode.Arguments>
-                  <OutArgument x:TypeArguments="scg:List(s:DateTime)" x:Key="out_listDatePeriod">
-                    <VisualBasicReference x:TypeArguments="scg:List(s:DateTime)" ExpressionText="listDatePeriod" />
-                  </OutArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_bodyEmail">
-                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="correctEmailFound.Body.ToString" />
-                  </InArgument>
+                  <OutArgument x:TypeArguments="scg:List(s:DateTime)" x:Key="out_listDatePeriod">[listDatePeriod]</OutArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_bodyEmail">[correctEmailFound.Body.ToString]</InArgument>
                 </ui:InvokeCode.Arguments>
               </ui:InvokeCode>
             </TryCatch.Try>
@@ -457,18 +445,10 @@
           </ui:MultipleAssign>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Set_EmailDate_Asset.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="449.6,145.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" UnSafe="False" WorkflowFileName="Custom_Workflow\Set_EmailDate_Asset.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateStartPeriod">
-                <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="listDatePeriod.Min()" />
-              </InArgument>
-              <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateEndPeriod">
-                <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="listDatePeriod.Max()" />
-              </InArgument>
-              <InArgument x:TypeArguments="scg:List(s:DateTime)" x:Key="in_listStartEndRange">
-                <VisualBasicValue x:TypeArguments="scg:List(s:DateTime)" ExpressionText="New List(of DateTime)" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_assetName">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;GlobalVarAsset&quot;).ToString" />
-              </InArgument>
+              <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateStartPeriod">[listDatePeriod.Min()]</InArgument>
+              <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateEndPeriod">[listDatePeriod.Max()]</InArgument>
+              <InArgument x:TypeArguments="scg:List(s:DateTime)" x:Key="in_listStartEndRange">[New List(of DateTime)]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_assetName">[in_Config("GlobalVarAsset").ToString]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -479,30 +459,14 @@
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ProcessingAttachment_Iata.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="449.6,136.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_25" UnSafe="False" WorkflowFileName="BP_Workflow\Daily\Iata\ProcessingAttachment_Iata.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
-                <VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
-              </InArgument>
-              <InArgument x:TypeArguments="snm:MailMessage" x:Key="in_CorrectEmailFound">
-                <VisualBasicValue x:TypeArguments="snm:MailMessage" ExpressionText="correctEmailFound" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_RawFolderPath">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strRawFolderPath" />
-              </InArgument>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strFilePath" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_DateRange">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="String.Format(&quot;{0};{1}&quot;, listDatePeriod.Min().ToString, listDatePeriod.Max().ToString)" />
-              </InArgument>
-              <InArgument x:TypeArguments="s:DateTime" x:Key="in_DatePeriod">
-                <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="listDatePeriod.Max()" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_AttachmentName">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="attachmentName" />
-              </InArgument>
+              <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+              <InArgument x:TypeArguments="snm:MailMessage" x:Key="in_CorrectEmailFound">[correctEmailFound]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_RawFolderPath">[strRawFolderPath]</InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">[strFilePath]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_DateRange">[String.Format("{0};{1}", listDatePeriod.Min().ToString, listDatePeriod.Max().ToString)]</InArgument>
+              <InArgument x:TypeArguments="s:DateTime" x:Key="in_DatePeriod">[listDatePeriod.Max()]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_AttachmentName">[attachmentName]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>
