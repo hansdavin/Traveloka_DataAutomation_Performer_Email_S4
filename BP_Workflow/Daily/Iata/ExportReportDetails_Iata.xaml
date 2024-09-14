@@ -10,7 +10,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>802.4,3368</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>773.6,3965.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ExportReportDetails_Iata_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="84">
@@ -62,6 +62,8 @@
       <x:String>UiPath.PDF.Activities.Properties</x:String>
       <x:String>System.Linq.Expressions</x:String>
       <x:String>System.Numerics</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Globalization</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -145,9 +147,12 @@
       <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ExportReportDetails_Iata" sap:VirtualizedContainerService.HintSize="608,3303.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ExportReportDetails_Iata" sap:VirtualizedContainerService.HintSize="784,3900.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strTempPath" />
       <Variable x:TypeArguments="x:String" Name="strArea" />
@@ -166,25 +171,26 @@
       <Variable x:TypeArguments="x:String" Name="strColumnWidth" />
       <Variable x:TypeArguments="x:Int32" Name="intRowOPE" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtScope" />
+      <Variable x:TypeArguments="x:String" Name="currentIssueDate" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="545.6,124.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;STEP : ExportReportDetails_Iata&quot;]" />
-    <ui:Comment sap:VirtualizedContainerService.HintSize="545.6,88" sap2010:WorkflowViewState.IdRef="Comment_1" Text="Using UIPath.PDF.Activities" />
-    <upap:GetPDFPageCount DisplayName="Get PDF Page Count" FileName="[in_pathReportDetails]" sap:VirtualizedContainerService.HintSize="545.6,92" sap2010:WorkflowViewState.IdRef="GetPDFPageCount_4" PageCount="[intPageCount]" />
-    <If Condition="[intPageCount &gt;= 2]" DisplayName="If Report Exist" sap:VirtualizedContainerService.HintSize="545.6,2909.6" sap2010:WorkflowViewState.IdRef="If_41">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="721.6,124.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;STEP : ExportReportDetails_Iata&quot;]" />
+    <ui:Comment sap:VirtualizedContainerService.HintSize="721.6,88" sap2010:WorkflowViewState.IdRef="Comment_1" Text="Using UIPath.PDF.Activities" />
+    <upap:GetPDFPageCount DisplayName="Get PDF Page Count" FileName="[in_pathReportDetails]" sap:VirtualizedContainerService.HintSize="721.6,92" sap2010:WorkflowViewState.IdRef="GetPDFPageCount_4" PageCount="[intPageCount]" />
+    <If Condition="[intPageCount &gt;= 2]" DisplayName="If Report Exist" sap:VirtualizedContainerService.HintSize="721.6,3507.2" sap2010:WorkflowViewState.IdRef="If_41">
       <If.Then>
-        <Sequence DisplayName="Sequence Export Report" sap:VirtualizedContainerService.HintSize="512,2356" sap2010:WorkflowViewState.IdRef="Sequence_81">
+        <Sequence DisplayName="Sequence Export Report" sap:VirtualizedContainerService.HintSize="688,2953.6" sap2010:WorkflowViewState.IdRef="Sequence_81">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:MultipleAssign sap2010:Annotation.AnnotationText="Change file path if using download folder" DisplayName="Multiple Assign_TabulaInput" sap:VirtualizedContainerService.HintSize="449.6,257.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+          <ui:MultipleAssign sap2010:Annotation.AnnotationText="Change file path if using download folder" DisplayName="Multiple Assign_TabulaInput" sap:VirtualizedContainerService.HintSize="625.6,257.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -229,14 +235,14 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:MultipleAssign>
-          <ui:InvokePowerShell x:TypeArguments="sma:PSObject" ContinueOnError="{x:Null}" CommandText="[&quot;Java &quot;+String.Format(&quot;-jar {5}{0}{5} {5}{1}{5} -a {2} -c {6} -p {3} -o {5}{4}{5}&quot;,in_pathTabula, in_pathReportDetails, strArea, strPage, strTempPath, quotes, strColumnWidth)]" DisplayName="Invoke Power Shell" sap:VirtualizedContainerService.HintSize="449.6,92" sap2010:WorkflowViewState.IdRef="InvokePowerShell`1_2" IsScript="True">
+          <ui:InvokePowerShell x:TypeArguments="sma:PSObject" ContinueOnError="{x:Null}" CommandText="[&quot;Java &quot;+String.Format(&quot;-jar {5}{0}{5} {5}{1}{5} -a {2} -c {6} -p {3} -o {5}{4}{5}&quot;,in_pathTabula, in_pathReportDetails, strArea, strPage, strTempPath, quotes, strColumnWidth)]" DisplayName="Invoke Power Shell" sap:VirtualizedContainerService.HintSize="625.6,92" sap2010:WorkflowViewState.IdRef="InvokePowerShell`1_2" IsScript="True">
             <ui:InvokePowerShell.PowerShellVariables>
               <scg:Dictionary x:TypeArguments="x:String, Argument" />
             </ui:InvokePowerShell.PowerShellVariables>
           </ui:InvokePowerShell>
-          <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="449.6,122.4" sap2010:WorkflowViewState.IdRef="Delay_1" />
-          <ui:ReadCsvFile DataTable="[dtCSV]" Delimitator="Comma" DisplayName="Read CSV_Tabula" FilePath="[strTempPath]" sap:VirtualizedContainerService.HintSize="449.6,187.2" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" IncludeColumnNames="False" />
-          <ui:FilterDataTable DataTable="[dtCSV]" DisplayName="Filter Data Table_AGCombine" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="449.6,194.4" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[dtCSV]" SelectColumnsMode="Keep">
+          <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="625.6,122.4" sap2010:WorkflowViewState.IdRef="Delay_1" />
+          <ui:ReadCsvFile DataTable="[dtCSV]" Delimitator="Comma" DisplayName="Read CSV_Tabula" FilePath="[strTempPath]" sap:VirtualizedContainerService.HintSize="625.6,187.2" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" IncludeColumnNames="False" />
+          <ui:FilterDataTable DataTable="[dtCSV]" DisplayName="Filter Data Table_AGCombine" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="625.6,194.4" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[dtCSV]" SelectColumnsMode="Keep">
             <ui:FilterDataTable.Filters>
               <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                 <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
@@ -263,7 +269,7 @@
               </scg:List>
             </ui:FilterDataTable.SelectColumns>
           </ui:FilterDataTable>
-          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[i]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="449.6,56.8" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[arrAgentBillingDetailColumn]">
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[i]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="625.6,56.8" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[arrAgentBillingDetailColumn]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="x:String">
                 <ActivityAction.Argument>
@@ -329,8 +335,8 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:ForEach>
-          <ui:WriteRange AddHeaders="True" DataTable="[dtCSV]" DisplayName="Write Range_Tabula" sap:VirtualizedContainerService.HintSize="449.6,148" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Raw" StartingCell="A1" WorkbookPath="[strTempPath.Replace(&quot;csv&quot;, &quot;xlsx&quot;).Replace(&quot;RAW&quot;, &quot;Draft&quot;)]" />
-          <Assign DisplayName="Assign_dtNormalizeClone" sap:VirtualizedContainerService.HintSize="449.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_10">
+          <ui:WriteRange AddHeaders="True" DataTable="[dtCSV]" DisplayName="Write Range_Tabula" sap:VirtualizedContainerService.HintSize="625.6,148" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Raw" StartingCell="A1" WorkbookPath="[strTempPath.Replace(&quot;csv&quot;, &quot;xlsx&quot;).Replace(&quot;RAW&quot;, &quot;Draft&quot;)]" />
+          <Assign DisplayName="Assign_dtNormalizeClone" sap:VirtualizedContainerService.HintSize="625.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_10">
             <Assign.To>
               <OutArgument x:TypeArguments="sd:DataTable">[dtNormalize]</OutArgument>
             </Assign.To>
@@ -338,8 +344,8 @@
               <InArgument x:TypeArguments="sd:DataTable">[dtCSV.Clone]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:AddDataColumn x:TypeArguments="x:String" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" Unique="{x:Null}" ColumnName="CATEGORIES" DataTable="[dtNormalize]" DisplayName="Add Data Column_Categories for dtNormalize" sap:VirtualizedContainerService.HintSize="449.6,220" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" MaxLength="-1" />
-          <InvokeMethod sap2010:Annotation.AnnotationText="Run last&#xA;Some code depends on absolute column index / positioning" DisplayName="Invoke Method - set column ordinal for &quot;Category&quot; column dt Normalize" sap:VirtualizedContainerService.HintSize="449.6,227.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_2" MethodName="SetOrdinal">
+          <ui:AddDataColumn x:TypeArguments="x:String" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" Unique="{x:Null}" ColumnName="CATEGORIES" DataTable="[dtNormalize]" DisplayName="Add Data Column_Categories for dtNormalize" sap:VirtualizedContainerService.HintSize="625.6,220" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" MaxLength="-1" />
+          <InvokeMethod sap2010:Annotation.AnnotationText="Run last&#xA;Some code depends on absolute column index / positioning" DisplayName="Invoke Method - set column ordinal for &quot;Category&quot; column dt Normalize" sap:VirtualizedContainerService.HintSize="625.6,116.8" sap2010:WorkflowViewState.IdRef="InvokeMethod_2" MethodName="SetOrdinal">
             <InvokeMethod.TargetObject>
               <InArgument x:TypeArguments="sd:DataColumn">[dtNormalize.Columns("CATEGORIES")]</InArgument>
             </InvokeMethod.TargetObject>
@@ -350,7 +356,7 @@
             </sap:WorkflowViewStateService.ViewState>
             <InArgument x:TypeArguments="x:Int32">0</InArgument>
           </InvokeMethod>
-          <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" sap2010:Annotation.AnnotationText="If 2nd table exist" DataTable="[dtCSV]" DisplayName="Lookup Data Table_OPE" sap:VirtualizedContainerService.HintSize="449.6,88" sap2010:WorkflowViewState.IdRef="LookupDataTable_10" LookupColumnIndex="[1]" LookupValue="OPE" RowIndex="[intRowOPE]">
+          <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" sap2010:Annotation.AnnotationText="If 2nd table exist" DataTable="[dtCSV]" DisplayName="Lookup Data Table_OPE" sap:VirtualizedContainerService.HintSize="625.6,88" sap2010:WorkflowViewState.IdRef="LookupDataTable_10" LookupColumnIndex="[1]" LookupValue="OPE" RowIndex="[intRowOPE]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -359,7 +365,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:LookupDataTable>
-          <If Condition="[not intRowOPE = -1]" DisplayName="If OPE exist" sap:VirtualizedContainerService.HintSize="449.6,56.8" sap2010:WorkflowViewState.IdRef="If_20">
+          <If Condition="[not intRowOPE = -1]" DisplayName="If OPE exist" sap:VirtualizedContainerService.HintSize="625.6,56.8" sap2010:WorkflowViewState.IdRef="If_20">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -384,7 +390,7 @@
               </Sequence>
             </If.Then>
           </If>
-          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="449.6,56.8" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[{&quot;SALES&quot;, &quot;REFUND&quot;, &quot;ADM&quot;, &quot;ACM&quot;, &quot;SCOPE&quot;}]">
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="625.6,56.8" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[{&quot;SALES&quot;, &quot;REFUND&quot;, &quot;ADM&quot;, &quot;ACM&quot;, &quot;SCOPE&quot;}]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="x:String">
                 <ActivityAction.Argument>
@@ -1479,7 +1485,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:ForEach>
-          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtNormalize]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="449.6,56.8" sap2010:WorkflowViewState.IdRef="ForEachRow_5">
+          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtNormalize]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="625.6,56.8" sap2010:WorkflowViewState.IdRef="ForEachRow_5">
             <ui:ForEachRow.Body>
               <ActivityAction x:TypeArguments="sd:DataRow">
                 <ActivityAction.Argument>
@@ -1569,7 +1575,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:ForEachRow>
-          <ui:FilterDataTable DataTable="[dtNormalize]" DisplayName="Filter Data Table_Normalize" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="449.6,56.8" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dtNormalize]" SelectColumnsMode="Keep">
+          <ui:FilterDataTable DataTable="[dtNormalize]" DisplayName="Filter Data Table_Normalize" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="625.6,56.8" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dtNormalize]" SelectColumnsMode="Keep">
             <ui:FilterDataTable.Filters>
               <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                 <ui:FilterOperationArgument BooleanOperator="And" Operator="CONTAINS">
@@ -1594,19 +1600,58 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:FilterDataTable>
-          <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="449.6,332.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[in_filePath]">
+          <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="625.6,1040.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[in_filePath]">
             <ui:ExcelApplicationScope.Body>
               <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,200" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="592,908" sap2010:WorkflowViewState.IdRef="Sequence_29">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:ExcelWriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dtNormalize]" DisplayName="Write Range_dtNormalize" sap:VirtualizedContainerService.HintSize="353.6,111.2" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="Sheet1" />
+                  <ui:AddDataColumn x:TypeArguments="x:String" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" Unique="{x:Null}" ColumnName="Issue Date2" DataTable="[dtNormalize]" DisplayName="Add Data Column_Categories for dtNormalize" sap:VirtualizedContainerService.HintSize="529.6,220" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_8" MaxLength="-1" />
+                  <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtNormalize]" DisplayName="For Each Row in Data Table assign previous issue date" sap:VirtualizedContainerService.HintSize="529.6,488" sap2010:WorkflowViewState.IdRef="ForEachRow_15">
+                    <ui:ForEachRow.Body>
+                      <ActivityAction x:TypeArguments="sd:DataRow">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,340" sap2010:WorkflowViewState.IdRef="Sequence_83">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap2010:Annotation.AnnotationText="If not empty can parsed format d-MMM-yy" DisplayName="Assign current issue date" sap:VirtualizedContainerService.HintSize="433.6,146.4" sap2010:WorkflowViewState.IdRef="Assign_78">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[currentIssueDate]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">[If(Not String.IsNullOrEmpty(CurrentRow("Issue Date").ToString()) AndAlso 
+Date.TryParseExact(CurrentRow("Issue Date").ToString(), "d-MMM-yy", Nothing, Globalization.DateTimeStyles.None, Nothing), CurrentRow("Issue Date").ToString(), currentIssueDate)]</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                          <Assign DisplayName="Assign issue date 2" sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_79">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Object">[CurrentRow("Issue Date2")]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Object">[currentIssueDate]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEachRow.Body>
+                  </ui:ForEachRow>
+                  <ui:ExcelWriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dtNormalize]" DisplayName="Write Range_dtNormalize" sap:VirtualizedContainerService.HintSize="529.6,111.2" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="Sheet1" />
                 </Sequence>
               </ActivityAction>
             </ui:ExcelApplicationScope.Body>
