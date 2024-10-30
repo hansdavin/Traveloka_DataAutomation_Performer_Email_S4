@@ -146,7 +146,7 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Main takeaways:&#xA;1. Daily report&#xA;2. Set global datetime in orchestrator asset to default (;)&#xA;3. Set global date end period in orchestrator&#xA;4. Check local folder path if file already exists or not" DisplayName="iata" sap:VirtualizedContainerService.HintSize="608,3757.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Main takeaways:&#xA;1. Daily report&#xA;2. Set global datetime in orchestrator asset to default (;)&#xA;3. Set global date end period in orchestrator&#xA;4. Check local folder path if file already exists or not" DisplayName="iata" sap:VirtualizedContainerService.HintSize="1156,3865.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strFilePath" />
       <Variable x:TypeArguments="x:Boolean" Name="isFileExist" />
@@ -164,16 +164,16 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="545.6,124.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} [{1}]&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, Now)]" />
-    <ui:SetAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;GlobalVarAsset&quot;).ToString]" DisplayName="Set Asset - Reset global var" sap:VirtualizedContainerService.HintSize="545.6,226.4" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[&quot;;&quot;]" />
-    <Sequence DisplayName="Sequence - Set date asset" sap:VirtualizedContainerService.HintSize="545.6,342.4" sap2010:WorkflowViewState.IdRef="Sequence_38">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="516.8,124.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} [{1}]&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, Now)]" />
+    <ui:SetAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;GlobalVarAsset&quot;).ToString]" DisplayName="Set Asset - Reset global var" sap:VirtualizedContainerService.HintSize="516.8,226.4" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[&quot;;&quot;]" />
+    <Sequence DisplayName="Sequence - Set date asset" sap:VirtualizedContainerService.HintSize="516.8,313.6" sap2010:WorkflowViewState.IdRef="Sequence_38">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:CommentOut DisplayName="Uncomment later if its needed for modifying date_period" sap:VirtualizedContainerService.HintSize="387.2,84.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut DisplayName="Uncomment later if its needed for modifying date_period" sap:VirtualizedContainerService.HintSize="416,84.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
         <ui:CommentOut.Body>
           <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="592,548.8" sap2010:WorkflowViewState.IdRef="Sequence_66">
             <sap:WorkflowViewStateService.ViewState>
@@ -225,7 +225,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:CommentOut>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Set_EmailDate_Asset.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,136.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Custom_Workflow\Set_EmailDate_Asset.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Set_EmailDate_Asset.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="416,136.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Custom_Workflow\Set_EmailDate_Asset.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateStartPeriod">[DateTime.MinValue]</InArgument>
           <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateEndPeriod">[in_datePeriod]</InArgument>
@@ -240,7 +240,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:InvokeWorkflowFile>
     </Sequence>
-    <ui:MultipleAssign DisplayName="Multiple Assign - Path" sap:VirtualizedContainerService.HintSize="545.6,196" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
+    <ui:MultipleAssign DisplayName="Multiple Assign - Path" sap:VirtualizedContainerService.HintSize="516.8,196" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
@@ -276,8 +276,8 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[isFileExist]" sap:VirtualizedContainerService.HintSize="545.6,122.4" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[strFilePath]" PathType="File" />
-    <If sap2010:Annotation.AnnotationText="If file doesn't exists in local folder or rerun in config sheet is set to true" Condition="[Not isFileExist Or in_isRerun]" DisplayName="If - File does not exist or rerun" sap:VirtualizedContainerService.HintSize="545.6,2564.8" sap2010:WorkflowViewState.IdRef="If_3">
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[isFileExist]" sap:VirtualizedContainerService.HintSize="516.8,122.4" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[strFilePath]" PathType="File" />
+    <If sap2010:Annotation.AnnotationText="If file doesn't exists in local folder or rerun in config sheet is set to true" Condition="[Not isFileExist Or in_isRerun]" DisplayName="If - File does not exist or rerun" sap:VirtualizedContainerService.HintSize="516.8,2783.2" sap2010:WorkflowViewState.IdRef="If_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -286,7 +286,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="512,2167.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="483.2,2414.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -301,26 +301,26 @@
               <InArgument x:TypeArguments="x:String" x:Key="in_label">[in_TransactionItem.SpecificContent("Key").ToString.Substring(0,4)]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <If sap2010:Annotation.AnnotationText="Check if emails from specified senderdomain exists within period range" Condition="[Not listMailMessages.Count &gt; 0]" DisplayName="Check if emails found" sap:VirtualizedContainerService.HintSize="449.6,144.8" sap2010:WorkflowViewState.IdRef="If_5">
+          <If sap2010:Annotation.AnnotationText="Check if emails from specified senderdomain exists within period range" Condition="[Not listMailMessages.Count &gt; 0]" DisplayName="Check if emails found" sap:VirtualizedContainerService.HintSize="449.6,464.8" sap2010:WorkflowViewState.IdRef="If_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,202.4" sap2010:WorkflowViewState.IdRef="Sequence_13">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,173.6" sap2010:WorkflowViewState.IdRef="Sequence_13">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Throw DisplayName="Business exception - email not found" Exception="[new BusinessRuleException(String.Format(&quot;Report for current period: {0} not found. Please check manually in email inbox.&quot;, in_datePeriod.ToString(&quot;dd-MMM-yy&quot;)))]" sap:VirtualizedContainerService.HintSize="353.6,113.6" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                <Throw DisplayName="Business exception - email not found" Exception="[new BusinessRuleException(String.Format(&quot;Report for current period: {0} not found. Please check manually in email inbox.&quot;, in_datePeriod.ToString(&quot;dd-MMM-yy&quot;)))]" sap:VirtualizedContainerService.HintSize="382.4,113.6" sap2010:WorkflowViewState.IdRef="Throw_2" />
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,104.8" sap2010:WorkflowViewState.IdRef="Sequence_14">
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89.6" sap2010:WorkflowViewState.IdRef="Sequence_14">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -361,7 +361,7 @@
               <OutArgument x:TypeArguments="x:String" x:Key="out_AttachmentName">[attachmentName]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <If Condition="[correctEmailFound Is Nothing]" DisplayName="If - correctEmailFound is not found" sap:VirtualizedContainerService.HintSize="449.6,477.6" sap2010:WorkflowViewState.IdRef="If_20">
+          <If Condition="[correctEmailFound Is Nothing]" DisplayName="If - correctEmailFound is not found" sap:VirtualizedContainerService.HintSize="449.6,433.6" sap2010:WorkflowViewState.IdRef="If_20">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -369,17 +369,17 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,202.4" sap2010:WorkflowViewState.IdRef="Sequence_68">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,173.6" sap2010:WorkflowViewState.IdRef="Sequence_68">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Throw DisplayName="Throw email not found" Exception="[new BusinessRuleException(String.Format(&quot;Report for current period: {0} not found. Please check manually in email inbox. CorrectEmailFound is nothing.&quot;, in_datePeriod.ToString(&quot;MMMM yyyy&quot;)))]" sap:VirtualizedContainerService.HintSize="353.6,113.6" sap2010:WorkflowViewState.IdRef="Throw_7" />
+                <Throw DisplayName="Throw email not found" Exception="[new BusinessRuleException(String.Format(&quot;Report for current period: {0} not found. Please check manually in email inbox. CorrectEmailFound is nothing.&quot;, in_datePeriod.ToString(&quot;MMMM yyyy&quot;)))]" sap:VirtualizedContainerService.HintSize="382.4,113.6" sap2010:WorkflowViewState.IdRef="Throw_7" />
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,104.8" sap2010:WorkflowViewState.IdRef="Sequence_69">
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89.6" sap2010:WorkflowViewState.IdRef="Sequence_69">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -391,10 +391,14 @@
           <ui:Comment sap:VirtualizedContainerService.HintSize="449.6,126.4" sap2010:WorkflowViewState.IdRef="Comment_1" Text="TODO\n&#xA;-Get date period from email body\n&#xA;-Set new filepath\&#xA;-Set date asset from date range\&#xA;-Set date range\&#xA;" />
           <TryCatch DisplayName="Try Catch get period" sap:VirtualizedContainerService.HintSize="449.6,428" sap2010:WorkflowViewState.IdRef="TryCatch_1">
             <TryCatch.Try>
-              <ui:InvokeCode ContinueOnError="{x:Null}" Code="//string text = @&quot;Hi All, The following information is for the IATA billing period 29 Jul-4 Aug 2024 with a maturity date on 23 Jul 2024&quot;;&#xD;&#xA;string text = in_bodyEmail.Replace(&quot;*&quot;, &quot;&quot;);&#xD;&#xA;&#xD;&#xA;string pattern = @&quot;(0?[1-9]|[12][0-9]|3[01])( [a-zA-Z]{3})?-(0?[1-9]|[12][0-9]|3[01]) ([a-zA-Z]{3}) (\d{4})&quot;;&#xD;&#xA;Match match = Regex.Match(text, pattern);&#xD;&#xA;&#xD;&#xA;if (match.Success)&#xD;&#xA;{&#xD;&#xA;string startDateString, endDateString;&#xD;&#xA;&#xD;&#xA;if (string.IsNullOrEmpty(match.Groups[2].Value))&#xD;&#xA;{&#xD;&#xA;&#x9;//Format 9-15 Jul 2024&#xD;&#xA;&#x9;Console.WriteLine(match.Value + &quot; match format dd-dd MMM yyyy&quot;);&#xD;&#xA;&#x9;startDateString = match.Groups[1].Value + &quot; &quot; + match.Groups[4].Value + &quot; &quot; + match.Groups[5].Value;&#xD;&#xA;&#x9;endDateString = match.Groups[3].Value + &quot; &quot; + match.Groups[4].Value + &quot; &quot; + match.Groups[5].Value;&#xD;&#xA;&#x9;Console.WriteLine(startDateString);&#xD;&#xA;&#x9;Console.WriteLine(endDateString);&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;&#x9;//Format 29 Jul-4 Aug 2024&#xD;&#xA;&#x9;Console.WriteLine(match.Value + &quot; match format dd MMM-dd MMM yyyy&quot;);&#xD;&#xA;&#x9;startDateString = match.Groups[1].Value + match.Groups[2].Value + &quot; &quot; + match.Groups[5].Value;&#xD;&#xA;&#x9;endDateString = match.Groups[3].Value + &quot; &quot; + match.Groups[4].Value + &quot; &quot; + match.Groups[5].Value;&#xD;&#xA;&#x9;Console.WriteLine(startDateString);&#xD;&#xA;&#x9;Console.WriteLine(endDateString);&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;DateTime startDate = DateTime.ParseExact(startDateString, &quot;d MMM yyyy&quot;, CultureInfo.InvariantCulture);&#xD;&#xA;DateTime endDate = DateTime.ParseExact(endDateString, &quot;d MMM yyyy&quot;, CultureInfo.InvariantCulture);&#xD;&#xA;&#xD;&#xA;List&lt;DateTime&gt; dates = new List&lt;DateTime&gt; {startDate, endDate };&#xD;&#xA;&#xD;&#xA;Console.WriteLine(&quot;Start date: &quot; + dates[0]);&#xD;&#xA;Console.WriteLine(&quot;End date: &quot; + dates[1]);&#xD;&#xA;out_listDatePeriod = dates;&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;throw new BusinessRuleException(&quot;Data not found, can't find period in body email&quot;);&#xD;&#xA;}" DisplayName="Invoke Code get period" sap:VirtualizedContainerService.HintSize="333.6,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+              <ui:InvokeCode ContinueOnError="{x:Null}" Code="//string text = @&quot;Hi All, The following information is for the IATA billing period 29 Jul-4 Aug 2024 with a maturity date on 23 Jul 2024&quot;;&#xD;&#xA;string text = Regex.Replace(in_bodyEmail, @&quot;[^\w-]&quot;, &quot;&quot;);&#xD;&#xA;Console.WriteLine(text);&#xD;&#xA;&#xD;&#xA;string pattern = @&quot;(0?[1-9]|[12][0-9]|3[01])( [a-zA-Z]{3})?-(0?[1-9]|[12][0-9]|3[01])([a-zA-Z]{3})(\d{4})&quot;;&#xD;&#xA;Match match = Regex.Match(text, pattern);&#xD;&#xA;&#xD;&#xA;if (match.Success)&#xD;&#xA;{&#xD;&#xA;string startDateString, endDateString;&#xD;&#xA;&#xD;&#xA;if (string.IsNullOrEmpty(match.Groups[2].Value))&#xD;&#xA;{&#xD;&#xA;&#x9;//Format 9-15 Jul 2024&#xD;&#xA;&#x9;Console.WriteLine(match.Value + &quot; match format dd-dd MMM yyyy&quot;);&#xD;&#xA;&#x9;startDateString = match.Groups[1].Value + &quot; &quot; + match.Groups[4].Value + &quot; &quot; + match.Groups[5].Value;&#xD;&#xA;&#x9;endDateString = match.Groups[3].Value + &quot; &quot; + match.Groups[4].Value + &quot; &quot; + match.Groups[5].Value;&#xD;&#xA;&#x9;Console.WriteLine(startDateString);&#xD;&#xA;&#x9;Console.WriteLine(endDateString);&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;&#x9;//Format 29 Jul-4 Aug 2024&#xD;&#xA;&#x9;Console.WriteLine(match.Value + &quot; match format dd MMM-dd MMM yyyy&quot;);&#xD;&#xA;&#x9;startDateString = match.Groups[1].Value + match.Groups[2].Value + &quot; &quot; + match.Groups[5].Value;&#xD;&#xA;&#x9;endDateString = match.Groups[3].Value + &quot; &quot; + match.Groups[4].Value + &quot; &quot; + match.Groups[5].Value;&#xD;&#xA;&#x9;Console.WriteLine(startDateString);&#xD;&#xA;&#x9;Console.WriteLine(endDateString);&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;DateTime startDate = DateTime.ParseExact(startDateString, &quot;d MMM yyyy&quot;, CultureInfo.InvariantCulture);&#xD;&#xA;DateTime endDate = DateTime.ParseExact(endDateString, &quot;d MMM yyyy&quot;, CultureInfo.InvariantCulture);&#xD;&#xA;&#xD;&#xA;List&lt;DateTime&gt; dates = new List&lt;DateTime&gt; {startDate, endDate };&#xD;&#xA;&#xD;&#xA;Console.WriteLine(&quot;Start date: &quot; + dates[0]);&#xD;&#xA;Console.WriteLine(&quot;End date: &quot; + dates[1]);&#xD;&#xA;out_listDatePeriod = dates;&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;throw new BusinessRuleException(&quot;Data not found, can't find period in body email&quot;);&#xD;&#xA;}" DisplayName="Invoke Code get period" sap:VirtualizedContainerService.HintSize="333.6,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
                 <ui:InvokeCode.Arguments>
-                  <OutArgument x:TypeArguments="scg:List(s:DateTime)" x:Key="out_listDatePeriod">[listDatePeriod]</OutArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_bodyEmail">[correctEmailFound.Body.ToString]</InArgument>
+                  <OutArgument x:TypeArguments="scg:List(s:DateTime)" x:Key="out_listDatePeriod">
+                    <VisualBasicReference x:TypeArguments="scg:List(s:DateTime)" ExpressionText="listDatePeriod" />
+                  </OutArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_bodyEmail">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="correctEmailFound.Body.ToString.Replace(&quot;*&quot;, &quot;&quot;)" />
+                  </InArgument>
                 </ui:InvokeCode.Arguments>
               </ui:InvokeCode>
             </TryCatch.Try>
@@ -472,13 +476,13 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,204.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,176" sap2010:WorkflowViewState.IdRef="Sequence_7">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="353.6,116" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[$&quot;File Traveloka_{in_TransactionItem.SpecificContent(&quot;BPID&quot;).ToString()}_{in_datePeriod.ToString(&quot;ddMMMyy&quot;)}.{in_TransactionItem.SpecificContent(&quot;File Type&quot;).ToString} already exists...&quot;]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382.4,116" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[$&quot;File Traveloka_{in_TransactionItem.SpecificContent(&quot;BPID&quot;).ToString()}_{in_datePeriod.ToString(&quot;ddMMMyy&quot;)}.{in_TransactionItem.SpecificContent(&quot;File Type&quot;).ToString} already exists...&quot;]" />
         </Sequence>
       </If.Else>
     </If>
